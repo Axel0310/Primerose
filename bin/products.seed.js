@@ -33,7 +33,7 @@ const products = [
     genre:"women",
     category:"Swimwear",
     sizesAvailable: [{size : "XS", quantity:23}, {size : "S", quantity:18}],
-  },
+  }
 ];
 
 productModel
