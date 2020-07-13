@@ -27,7 +27,7 @@ const productSchema = new Schema({
         type: String,
         enum: ["Coats & Jackets", "Dresses", "Sweatshirts","Jeans","Jumpsuits","Shorts","Skirts","Suits","Swimwear","Tops", "Tracksuits","Trousers","Workwear","Lingerie"]
     },
-    git : {
+    size : {
         type: String,
         enum: ["XXS", "XS", "S", "M", "L", "XL", "XXL"]
     },
