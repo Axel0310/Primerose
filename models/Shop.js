@@ -11,6 +11,9 @@ const shopSchema = new Schema({
         ref: "product"
     }],
     totalSales: Number,
+    creationDate: {
+        type : Date;
+        default:Date.now;
 })
 
 const shopModel = mongoose.model("Shop", shopSchema);
