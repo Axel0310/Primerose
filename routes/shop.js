@@ -13,4 +13,12 @@ router.get("/shops", async (req, res, next) => {
   }
 });
 
+router.post("/shops/create", async (req, res, next) =>{
+    try {
+        res.json(await shopModel.create(req.body));
+    } catch (error) {
+        next(error)
+    }
+});
+
 module.exports = router;
