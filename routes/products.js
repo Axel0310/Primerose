@@ -3,7 +3,7 @@
 const express = require("express");
 const router = new express.Router();
 const uploader = require("./../config/cloudinary");
-const productModel = require("./../models/products");
+const productModel = require("./../models/product");
 
 router.get("/:cat", async (req, res, next) => {
   try {

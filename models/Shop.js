@@ -12,8 +12,9 @@ const shopSchema = new Schema({
     }],
     totalSales: Number,
     creationDate: {
-        type : Date;
-        default:Date.now;
+        type : Date,
+        default:Date.now,
+}
 })
 
 const shopModel = mongoose.model("Shop", shopSchema);
