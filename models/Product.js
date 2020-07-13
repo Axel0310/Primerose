@@ -27,10 +27,14 @@ const productSchema = new Schema({
         type: String,
         enum: ["Coats & Jackets", "Dresses", "Sweatshirts","Jeans","Jumpsuits","Shorts","Skirts","Suits","Swimwear","Tops", "Tracksuits","Trousers","Workwear","Lingerie"]
     },
-    size : {
+    sizesAvailable: [{
         type: String,
-        enum: ["XXS", "XS", "S", "M", "L", "XL", "XXL"]
-    },
+        size : {
+            type : String,
+            enum: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+        },
+        quantity: Number,
+    }],
 })
 
 const productModel = mongoose.model("Product", productSchema);

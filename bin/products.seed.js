@@ -12,7 +12,7 @@ const products = [
     view:12,
     genre:"women",
     category:"Dresses",
-    size: M
+    sizesAvailable: [{size : "M", quantity:3}, {size : "L", quantity:10}],
   },
   {
     name: "Veste de travail",
@@ -22,7 +22,7 @@ const products = [
     view:60,
     genre:"women",
     category:"Coats & Jackets",
-    size: L
+    sizesAvailable: [{size : "S", quantity:13}, {size : "M", quantity:12}],
   },
   {
     name: "Itsbitsi Bikini",
@@ -32,7 +32,7 @@ const products = [
     view:30,
     genre:"women",
     category:"Swimwear",
-    size: XS
+    sizesAvailable: [{size : "XS", quantity:23}, {size : "S", quantity:18}],
   },
 ];
 
