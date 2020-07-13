@@ -5,7 +5,7 @@ const router = new express.Router();
 const uploader = require("./../config/cloudinary");
 const productModel = require("./../models/products");
 
-router.get("/products/:cat", async (req, res, next) => {
+router.get("/:cat", async (req, res, next) => {
   try {
     const products = await productModel.find({ category: req.params.cat});
     res.render("products", { products: products});
@@ -14,7 +14,7 @@ router.get("/products/:cat", async (req, res, next) => {
   }
 });
 
-router.get("/one-product/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const product = await productModel.findById(req.params.id);
     res.render("one_product", { product });
@@ -23,7 +23,7 @@ router.get("/one-product/:id", async (req, res, next) => {
   }
 });
 
-router.post("/products/create", async (req, res, next) =>{
+router.post("/create", async (req, res, next) =>{
     try {
         res.json(await productModel.create(req.body));
     } catch (error) {

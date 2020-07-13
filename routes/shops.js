@@ -1,10 +1,10 @@
 
 const express = require("express");
 const router = new express.Router();
-const uploader = require("./../config/cloudinary");
-const shopModel = require("./../models/Shop");
+const uploader = require("../config/cloudinary");
+const shopModel = require("../models/Shop");
 
-router.get("/shops", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const shops = await shopModel.find();
     res.render("shops", {shops: shops});
@@ -13,7 +13,7 @@ router.get("/shops", async (req, res, next) => {
   }
 });
 
-router.post("/shops/create", async (req, res, next) =>{
+router.post("/create", async (req, res, next) =>{
     try {
         res.json(await shopModel.create(req.body));
     } catch (error) {

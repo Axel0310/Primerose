@@ -7,6 +7,8 @@ const hbs = require("hbs");
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const shopsRouter = require('./routes/shops');
+const productsRouter = require('./routes/products');
 
 const app = express();
 
@@ -25,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products', usersRouter);
+app.use('/shops', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
