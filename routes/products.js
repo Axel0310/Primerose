@@ -23,4 +23,12 @@ router.get("/one-product/:id", async (req, res, next) => {
   }
 });
 
+router.post("/products/create", async (req, res, next) =>{
+    try {
+        res.json(await productModel.create(req.body));
+    } catch (error) {
+        next(error)
+    }
+});
+
 module.exports = router;
