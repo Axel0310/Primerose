@@ -18,6 +18,10 @@ const productSchema = new Schema({
         type: Number,
         default: 0
     },
+    genre: {
+        type: String,
+        enum: ["Men", "Women"]
+    },
     category: {
         type: Schema.Types.ObjectId,
         ref: "Category"
