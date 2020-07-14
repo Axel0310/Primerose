@@ -3,6 +3,7 @@ const router = new express.Router();
 const uploader = require("./../config/cloudinary");
 const shopModel = require("./../models/Shop");
 const productModel = require("./../models/Product");
+const categoryModel = require("./../models/Category");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -32,8 +33,83 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.get("/:id/add-product", (req, res, next) => {
-  res.render("forms/add_product");
-})
+router.get("/:id/add-product", async (req, res, next) => {
+  try {
+    const categories = await categoryModel.find();
+    res.render("forms/add_product", {categories});
+  } catch (error) {
+    next(error)
+  }
+});
+
+router.post(
+  "/:id/add-product",
+  uploader.single("picture"),
+  async (req, res, next) => {
+    const {
+      name,
+      description,
+      price,
+      genre,
+      category,
+      qtyXXS,
+      qtyXS,
+      qtyS,
+      qtyM,
+      qtyL,
+      qtyXL,
+      qtyXXL,
+    } = req.body;
+
+    const inputQuantities = [
+      {
+        size: "XXS",
+        quantity: qtyXXS,
+      },
+      {
+        size: "XS",
+        quantity: qtyXS,
+      },
+      {
+        size: "S",
+        quantity: qtyS,
+      },
+      {
+        size: "M",
+        quantity: qtyM,
+      },
+      {
+        size: "L",
+        quantity: qtyL,
+      },
+      {
+        size: "XL",
+        quantity: qtyXL,
+      },
+      {
+        size: "XXL",
+        quantity: qtyXXL,
+      },
+    ];
+    const sizesAvailable = inputQuantities.filter((size) => size.quantity > 0);
+    const shop = req.params.id;
+
+    const addedProduct = await productModel.create({
+      name,
+      description,
+      price,
+      genre,
+      category,
+      sizesAvailable,
+      image: req.file ? req.file.path : "/images/default_product.png",
+      shop
+    });
+    const shopObj = await shopModel.findById(shop);
+    shopObj.products.push(addedProduct._id);
+    await shopModel.findByIdAndUpdate(shop, shopObj);
+
+    res.redirect(`/shops/${shop}/add-product`)
+  }
+);
 
 module.exports = router;
