@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
 router.get("/detailed/:id", async (req, res, next) => {
   try {
     const product = await productModel.findById(req.params.id);
+    // res.json(product);
     res.render("one_product", product);
   } catch (error) {
     next(error);
@@ -26,7 +27,7 @@ router.get("/detailed/:id", async (req, res, next) => {
 router.get("/:genre/:cat", async (req, res, next) => {
   try {
     const products = await productModel.find({ genre: req.params.genre, category: req.params.cat}).populate("category");
-    res.render("products", products);
+    res.render("products", {products});
   } catch (error) {
     next(error);
   }
