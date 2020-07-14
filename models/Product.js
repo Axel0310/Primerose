@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
     name: String,
     description: String,
-    quantityAvailable: Number,
     price: Number,
     image: {
         type: String,
@@ -15,7 +14,7 @@ const productSchema = new Schema({
         type: Number,
         default: 0
     },
-    sellscount: {
+    sellsCount: {
         type: Number,
         default: 0
     },
@@ -30,9 +29,9 @@ const productSchema = new Schema({
     sizesAvailable: [{
         size : {
             type : String,
-            enum: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+            enum: ["XXS", "XS", "S", "M", "L", "XL", "XXL"]
         },
-        quantity: Number,
+        quantity: Number
     }],
 })
 

@@ -7,28 +7,25 @@ const productModel = require("./../models/Product");
 
 router.get("/", async (req, res, next) => {
   try {
-    console.log("foo1")
-    const products = await productModel.find();
-    console.log("foo2")
-    res.json(products);
+    res.json(await productModel.find());
   } catch (error) {
     next(error)
   }
 })
 
-router.get("/:cat", async (req, res, next) => {
+router.get("/detailled/:id", async (req, res, next) => {
   try {
-    const products = await productModel.find({ category: req.params.cat});
-    res.render("products", { products: products});
+    const product = await productModel.findById(req.params.id);
+    res.render("one_product", product);
   } catch (error) {
     next(error);
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:genre/:cat", async (req, res, next) => {
   try {
-    const product = await productModel.findById(req.params.id);
-    res.render("one_product", { product });
+    const products = await productModel.find({ genre: req.params.genre, category: req.params.cat});
+    res.render("products", products);
   } catch (error) {
     next(error);
   }
