@@ -18,13 +18,9 @@ const productSchema = new Schema({
         type: Number,
         default: 0
     },
-    genre: {
-        type: String,
-        enum: ["men", "women"]
-    },
     category: {
-        type: String,
-        enum: ["Coats & Jackets", "Dresses", "Sweatshirts","Jeans","Jumpsuits","Shorts","Skirts","Suits","Swimwear","Tops", "Tracksuits","Trousers","Workwear","Lingerie"]
+        type: Schema.Types.ObjectId,
+        ref: "Category"
     },
     sizesAvailable: [{
         size : {
@@ -38,3 +34,4 @@ const productSchema = new Schema({
 const productModel = mongoose.model("Product", productSchema);
 
 module.exports = productModel;
+
