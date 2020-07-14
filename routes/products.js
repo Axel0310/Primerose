@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 })
 
-router.get("/detailled/:id", async (req, res, next) => {
+router.get("/detailed/:id", async (req, res, next) => {
   try {
     const product = await productModel.findById(req.params.id);
     res.render("one_product", product);
