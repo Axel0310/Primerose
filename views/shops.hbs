@@ -1,1 +1,11 @@
-<h1>Shops</h1>
+<h1>All shops</h1>
+
+{{#unless shops}}
+<p>Sorry, there are no shops yet !</p>
+<p>You are a fashion designer and you want to create your shop?</p>
+<a href="#"> Create your shop here</a>
+{{/unless}}
+
+{{#each shops}}
+{{> shop_mini }}
+{{/each}}
