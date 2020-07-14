@@ -4,12 +4,9 @@ const Schema = mongoose.Schema;
 const categorySchema = new Schema ({
     genre: {
         type: [String],
-        enum: ["men", "women"]
+        enum: ["Men", "Women"]
     },
-    category: {
-        type: String,
-        enum: ["Coats & Jackets", "Dresses", "Sweatshirts","Jeans","Jumpsuits","Shorts","Skirts","Suits","Swimwear","Tops", "Tracksuits","Trousers","Workwear","Lingerie"]
-    },
+    category: String,
 })
 
 const categoryModel = mongoose.model("Category", categorySchema);
