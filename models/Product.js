@@ -8,7 +8,7 @@ const productSchema = new Schema({
     price: Number,
     image: {
         type: String,
-        default: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.maslonline.org%2Fstore%2FListProducts.aspx%3Fcatid%3D64531%26ftr%3D%26view_type%3D0&psig=AOvVaw1F-qZED9TE3s2sSfCNFlXe&ust=1594735295194000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCR_YeyyuoCFQAAAAAdAAAAABAE"
+        default: "/images/default_product.png"
     },
     view: {
         type: Number,
