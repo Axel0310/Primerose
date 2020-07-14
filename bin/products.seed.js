@@ -163,7 +163,17 @@ Promise.all( [categoryModel.insertMany(categories), shopModel.insertMany(shops)]
   ];
 
   productModel
-  .insertMany(products);
+  .insertMany(products)
+  .then( async (prods) => {
+    shops[0].products = [prods[0]._id];
+    shops[1].products = [prods[1]._id, prods[1]._id];
+    shops[2].products = [prods[2]._id, prods[4]._id];
+    console.log(shops[0])
+    await shopModel.findByIdAndUpdate(shops[0]._id, shops[0]);
+    await shopModel.findByIdAndUpdate(shops[1]._id, shops[1]);
+    await shopModel.findByIdAndUpdate(shops[2]._id, shops[2]);
+    console.log("====Insertion done====")
+  });
   
 })
 .catch((dbErr) => console.log(dbErr));
