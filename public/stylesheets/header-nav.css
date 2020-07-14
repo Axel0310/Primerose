@@ -7,6 +7,22 @@
   margin-left: auto;
 }
 
+.nav-categories {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  align-items:center;
+}
+
+.nav-category {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  align-items:center;
+  border: 1px solid rgb(212, 212, 212);
+  width: 100px;
+}
+
 .nav-wrapper {
   border-bottom: 1px solid rgb(212, 212, 212);
   height: 53px;
