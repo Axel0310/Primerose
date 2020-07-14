@@ -76,6 +76,7 @@ categoryModel
       {
         name: "Robe fleurie",
         description: "Cousu main pres du Canal Saint Martin",
+        image : "./../public/images/logo-maison-francette.png",
         price: 6,
         view: 12,
         genre: "women",
