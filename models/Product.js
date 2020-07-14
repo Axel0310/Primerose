@@ -33,6 +33,10 @@ const productSchema = new Schema({
         },
         quantity: Number
     }],
+    shop: {
+        type: Schema.Types.ObjectId,
+        ref: "Shop"
+    }
 })
 
 const productModel = mongoose.model("Product", productSchema);

@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const shopSchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        unique: true
+    },
     image: String,
     description: String,
     view: Number,

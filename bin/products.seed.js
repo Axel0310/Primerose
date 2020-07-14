@@ -2,8 +2,8 @@ require("dotenv").config();
 require("./../config/mongodb");
 
 const productModel = require("./../models/Product");
-
 const categoryModel = require("./../models/Category");
+const shopModel = require("./../models/Shop");
 
 const categories = [
   {
@@ -68,77 +68,104 @@ const categories = [
   },
 ];
 
-categoryModel
-  .insertMany(categories)
-  .then((cat) => {
-    console.log(cat);
-    const products = [
-      {
-        name: "Robe fleurie",
-        description: "Cousu main pres du Canal Saint Martin",
-        image : "/images/logo-maison-francette.png",
-        price: 6,
-        view: 12,
-        genre: "women",
-        category: cat[1]._id,
-        sizesAvailable: [
-          { size: "M", quantity: 3 },
-          { size: "L", quantity: 10 },
-        ],
-      },
-      {
-        name: "Veste de travail",
-        description: "Materiau brut et finitions parfaites",
-        price: 50,
-        view: 60,
-        genre: "women",
-        category: cat[0]._id,
-        sizesAvailable: [
-          { size: "S", quantity: 13 },
-          { size: "M", quantity: 12 },
-        ],
-      },
-      {
-        name: "Itsbitsi Bikini",
-        description: "Un tout petit petit bikini",
-        price: 40,
-        view: 30,
-        genre: "women",
-        category: cat[8]._id,
-        sizesAvailable: [
-          { size: "XS", quantity: 23 },
-          { size: "S", quantity: 18 },
-        ],
-      },
-      {
-        name: "Random jean",
-        description: "a random jean",
-        price: 70,
-        view: 10,
-        genre: "men",
-        category: cat[3]._id,
-        sizesAvailable: [
-          { size: "XS", quantity: 23 },
-          { size: "S", quantity: 18 },
-        ],
-      },
-      {
-        name: "Random jacket",
-        description: "a random jacket",
-        price: 150,
-        view: 10,
-        genre: "men",
-        category: cat[7]._id,
-        sizesAvailable: [
-          { size: "XS", quantity: 23 },
-          { size: "S", quantity: 18 },
-        ],
-      },
-    ];
+const shops = [
+  {
+    name: "Maison Francette",
+    description: "Cousu main pres du Canal Saint Martin",
+    view: 2300,
+    image: "/images/logo-maison-francette.png",
+  },
+  {
+    name: "Sezane",
+    description: "Made in Paris",
+    view: 1200,
+    image:
+      "https://www.connected-store.com/wp-content/uploads/2020/02/SezaneEco3.png",
+  },
+  {
+    name: "Balzac",
+    description: "Une marque éthique et tendance",
+    view: 200,
+    image:
+      "https://www.slapdigital.fr/static/7c3ec037a9ac175fab0d0379e4ab0f2e/37d5a/logo-balzac-paris.png",
+  },
+];
 
-    productModel
-      .insertMany(products)
-      .then((dbRes) => console.log(dbRes))
-      .catch((dbErr) => console.log(dbErr));
-  })
-  .catch((dbErr) => console.log(dbErr));
+Promise.all( [categoryModel.insertMany(categories), shopModel.insertMany(shops)] )
+.then( ([categories, shops]) => {
+  const products = [
+    {
+      name: "Robe fleurie",
+      description: "Cousu main pres du Canal Saint Martin",
+      image: "/images/logo-maison-francette.png",
+      price: 6,
+      view: 12,
+      genre: "women",
+      category: categories[1]._id,
+      sizesAvailable: [
+        { size: "M", quantity: 3 },
+        { size: "L", quantity: 10 },
+      ],
+      shop: shops[0]._id,
+    },
+    {
+      name: "Veste de travail",
+      description: "Materiau brut et finitions parfaites",
+      price: 50,
+      view: 60,
+      genre: "women",
+      category: categories[0]._id,
+      sizesAvailable: [
+        { size: "S", quantity: 13 },
+        { size: "M", quantity: 12 },
+      ],
+      shop: shops[1]._id,
+    },
+    {
+      name: "Itsbitsi Bikini",
+      description: "Un tout petit petit bikini",
+      price: 40,
+      view: 30,
+      genre: "women",
+      category: categories[8]._id,
+      sizesAvailable: [
+        { size: "XS", quantity: 23 },
+        { size: "S", quantity: 18 },
+      ],
+      shop: shops[2]._id,
+    },
+    {
+      name: "Random jean",
+      description: "a random jean",
+      price: 70,
+      view: 10,
+      genre: "men",
+      category: categories[3]._id,
+      sizesAvailable: [
+        { size: "XS", quantity: 23 },
+        { size: "S", quantity: 18 },
+      ],
+      shop: shops[1]._id,
+    },
+    {
+      name: "Random jacket",
+      description: "a random jacket",
+      price: 150,
+      view: 10,
+      genre: "men",
+      category: categories[7]._id,
+      sizesAvailable: [
+        { size: "XS", quantity: 23 },
+        { size: "S", quantity: 18 },
+      ],
+      shop: shops[2]._id,
+    },
+  ];
+
+  productModel
+  .insertMany(products);
+  
+})
+.catch((dbErr) => console.log(dbErr));
+
+
