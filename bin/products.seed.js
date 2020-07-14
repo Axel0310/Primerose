@@ -59,7 +59,7 @@ const categories = [
     name: "Workwear",
   },
   {
-    genre: ["men", "women"],
+    genre: ["women"],
     name: "Lingerie",
   },
   {
