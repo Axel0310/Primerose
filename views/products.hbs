@@ -1,1 +1,11 @@
 <h1>Products</h1>
+
+{{#unless products}}
+<p>Sorry, there are no products in this category yet !</p>
+<p>You are a fashion designer and you do ${category} for ${gender}?</p>
+<a href="#"> Create your shop here</a>
+{{/unless}}
+
+{{#each products}}
+{{> product_mini }}
+{{/each}}
