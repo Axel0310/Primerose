@@ -49,3 +49,21 @@ button:focus {
 /* .arrow-button .arrow {
   font-size: .9rem;
 } */
+
+#men-button, #women-button, #shops-button {
+  color: white;
+  background: #C6D2ED;
+  border: 1px solid;
+  font-size: 1rem;
+  transition: all 0.2s ease-in;
+  transition-property: color, background;
+  border-radius: 0.2rem;
+  padding: 0.5rem 0.8rem;
+  width:100px;
+}
+
+#men-button:hover, #women-button:hover, #shops-button:hover {
+    color: #29335C;
+    background: #E7E6F7;
+    border: 1px solid;
+}

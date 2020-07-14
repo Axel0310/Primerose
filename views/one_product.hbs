@@ -1,27 +1,31 @@
-<div class="one-product-container">
-
-    <div class="product-img-container">
-        <img src="{{image}}" alt="img-product" class="product-img">
-    </div>
-
-    <div class="product-info">
-        <div class="product-info-header">
-            <h1 class="product-name">{{name}}</h1>
-            <p class="product-description">{{description}}</p>
-            <p class="product-price">{{price}}€</p>
+<a href="/shop/{{shop._id}}">
+    <div class="one-product-container">
+        <div class="product-shop">
+            <h1 class="shop-name">{{shop.name}}</h1>
+            <img src="{{shop.image}}" alt="img-product" class="product-img">
         </div>
-    </div>
-    <div class="flexed-item">
-        <select name="main-category" id="main_category" class="select product-select">
-            <option value="">Choose Size</option>
+</a>
+<div class="product-img-container">
+    <img src="{{image}}" alt="img-product" class="product-img">
+</div>
 
-            {{#each sizesAvailable}}
-            <option value="{{this.size}}">{{this.size}}</option>
-            {{/each}}
-        </select>
-
-        <a href="" class="button-primary a-link">Add to cart <i
-                class="fas fa-shopping-cart shop-cart-icon-page"></i></a>
+<div class="product-info">
+    <div class="product-info-header">
+        <h1 class="product-name">{{name}}</h1>
+        <p class="product-description">{{description}}</p>
+        <p class="product-price">{{price}}€</p>
     </div>
+</div>
+<div class="flexed-item">
+    <select name="main-category" id="main_category" class="select product-select">
+        <option value="">Choose Size</option>
+
+        {{#each sizesAvailable}}
+        <option value="{{this.size}}">{{this.size}}</option>
+        {{/each}}
+    </select>
+
+    <a href="" class="button-primary a-link">Add to cart <i class="fas fa-shopping-cart shop-cart-icon-page"></i></a>
+</div>
 
 </div>

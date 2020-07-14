@@ -1,0 +1,13 @@
+<div class="shop-info">
+        <h1 class="shop-name">{{shop.name}}</h1>
+        <p class="shop-description">{{shop.description}}</p>
+        <img src="{{shop.image}}" alt="img-product" class="product-img">
+</div>
+
+<div class="shop-product-gallery">
+
+{{#each products}}
+{{> product_mini }}
+{{/each}}
+
+</div>

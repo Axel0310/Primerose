@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/detailed/:id", async (req, res, next) => {
   try {
-    const product = await productModel.findById(req.params.id);
+    const product = await (await productModel.findById(req.params.id)).populate("shop");
     res.render("one_product", product);
   } catch (error) {
     next(error);
