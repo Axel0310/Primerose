@@ -7,63 +7,63 @@ const categoryModel = require("./../models/Category");
 
 const categories = [
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Coats & Jackets",
   },
   {
-    genre: ["Women"],
+    genre: ["women"],
     name: "Dresses",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Sweatshirts",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Jeans",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Jumpsuits",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Shorts",
   },
   {
-    genre: ["Women"],
+    genre: ["women"],
     name: "Skirts",
   },
   {
-    genre: ["Men"],
+    genre: ["men"],
     name: "Suits",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Swimwear",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Tops",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Tracksuits",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Trousers",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Workwear",
   },
   {
-    genre: ["Men", "Women"],
+    genre: ["men", "women"],
     name: "Lingerie",
   },
   {
-    genre: ["Men"],
+    genre: ["men"],
     name: "Underwear",
   },
 ];
@@ -78,7 +78,7 @@ categoryModel
         description: "Cousu main pres du Canal Saint Martin",
         price: 6,
         view: 12,
-        genre: "Women",
+        genre: "women",
         category: cat[1]._id,
         sizesAvailable: [
           { size: "M", quantity: 3 },
@@ -90,7 +90,7 @@ categoryModel
         description: "Materiau brut et finitions parfaites",
         price: 50,
         view: 60,
-        genre: "Women",
+        genre: "women",
         category: cat[0]._id,
         sizesAvailable: [
           { size: "S", quantity: 13 },
@@ -102,7 +102,7 @@ categoryModel
         description: "Un tout petit petit bikini",
         price: 40,
         view: 30,
-        genre: "Women",
+        genre: "women",
         category: cat[8]._id,
         sizesAvailable: [
           { size: "XS", quantity: 23 },
@@ -114,7 +114,7 @@ categoryModel
         description: "a random jean",
         price: 70,
         view: 10,
-        genre: "Men",
+        genre: "men",
         category: cat[3]._id,
         sizesAvailable: [
           { size: "XS", quantity: 23 },
@@ -126,7 +126,7 @@ categoryModel
         description: "a random jacket",
         price: 150,
         view: 10,
-        genre: "Men",
+        genre: "men",
         category: cat[7]._id,
         sizesAvailable: [
           { size: "XS", quantity: 23 },

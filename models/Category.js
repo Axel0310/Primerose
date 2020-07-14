@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const categorySchema = new Schema ({
     genre: {
         type: [String],
-        enum: ["Men", "Women"]
+        enum: ["men", "women"]
     },
     name: String,
 })

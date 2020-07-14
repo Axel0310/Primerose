@@ -20,7 +20,7 @@ const productSchema = new Schema({
     },
     genre: {
         type: String,
-        enum: ["Men", "Women"]
+        enum: ["men", "women"]
     },
     category: {
         type: Schema.Types.ObjectId,
