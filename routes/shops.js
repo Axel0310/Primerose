@@ -24,7 +24,7 @@ router.post("/create", async (req, res, next) =>{
     }
 });
 
-router.get("/shop/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const shop = await shopModel.findById(req.params.id);
     const products = await productModel.find({shop: req.params.id});
