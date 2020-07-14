@@ -6,7 +6,7 @@ const shopModel = require("./../models/Shop");
 
 router.get("/", async (req, res, next) => {
   try {
-    const shops = await shopModel.find();
+    const shops = await shopModel.find().sort({name: 1});
     res.json(shops);
     // res.render("shops", {shops: shops});
   } catch (error) {

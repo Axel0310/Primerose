@@ -5,7 +5,6 @@ const categorySchema = new Schema ({
     genre: {
         type: [String],
         enum: ["men", "women"],
-        unique: true
     },
     name: String,
 })
