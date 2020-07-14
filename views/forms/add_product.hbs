@@ -1,0 +1,70 @@
+<form action="#" method="post" class="add-product-form" enctype="multipart/form-data">
+    <h3 class="form-title">Add a new product</h3>
+    <div class="form-item-wrapper flexed-item">
+        <label for="product-name" class="label">Product name</label>
+        <input id="product-name" name="name" type="text" class="input-text input" placeholder="ex: Nice dress"
+            value="Fake dress" required>
+    </div>
+
+    <div class="form-item-wrapper flexed-item">
+        <label for="product-desc" class="label">Product description</label>
+        <input id="product-desc" name="description" type="text" class="input-text input" placeholder="ex: Swag"
+            value="Fake dress description" required>
+    </div>
+
+    <div class="form-item-wrapper flexed-item">
+        <label for="product-price" class="label">Product price</label>
+        <input id="product-price" name="price" type="number" class="input-text input" value="50" required>
+    </div>
+
+    <div class="form-item-wrapper flexed-item">
+        <label for="product-genre" class="label">Product genre</label>
+        <select id="product-genre" name="genre" class="select" required>
+            <option value="-1" disabled selected>Choose a category</option>
+            <option value="men">Women</option>
+            <option value="women">Men</option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+            <th>Size</th>
+            <th>XXS</th>
+            <th>XS</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+            <th>XXL</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Quantity</td>
+                <td><input id="qty-xxs" name="qty-xxs" type="number" class="input-text input" value="2" ></td>
+                <td><input id="qty-xs" name="qty-xs" type="number" class="input-text input" value="0" ></td>
+                <td><input id="qty-s" name="qty-s" type="number" class="input-text input" value="3" ></td>
+                <td><input id="qty-m" name="qty-m" type="number" class="input-text input" value="5" ></td>
+                <td><input id="qty-l" name="qty-l" type="number" class="input-text input" value="2" ></td>
+                <td><input id="qty-xl" name="qty-xl" type="number" class="input-text input" value="0" ></td>
+                <td><input id="qty-xxl" name="qty-xxl" type="number" class="input-text input" value="1" ></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-item-wrapper flexed-item">
+        <label for="product-category" class="label">Product category</label>
+        <select id="product-category" name="category" class="select" required>
+            <option value="-1" disabled selected>Choose a category</option>
+            {{#each categories}}
+            <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+
+
+    <div class="form-item-wrapper flexed-item">
+        <label for="product-img" class="label">Product image</label>
+        <input id="product-img" name="image" type="file" class="input">
+    </div>
+</form>

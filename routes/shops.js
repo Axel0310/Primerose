@@ -1,14 +1,12 @@
-
 const express = require("express");
 const router = new express.Router();
 const uploader = require("./../config/cloudinary");
 const shopModel = require("./../models/Shop");
 const productModel = require("./../models/Product");
 
-
 router.get("/", async (req, res, next) => {
   try {
-    const shops = await shopModel.find().sort({name: 1});
+    const shops = await shopModel.find().sort({ name: 1 });
     res.json(shops);
     // res.render("shops", {shops: shops});
   } catch (error) {
@@ -16,23 +14,26 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/create", async (req, res, next) =>{
-    try {
-        res.json(await shopModel.create(req.body));
-    } catch (error) {
-        next(error)
-    }
+router.post("/create", async (req, res, next) => {
+  try {
+    res.json(await shopModel.create(req.body));
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get("/:id", async (req, res, next) => {
   try {
     const shop = await shopModel.findById(req.params.id);
-    const products = await productModel.find({shop: req.params.id});
-    res.render("one_shop", {shop, products});
+    const products = await productModel.find({ shop: req.params.id });
+    res.render("one_shop", { shop, products });
+  } catch (error) {
+    next(error);
   }
-  catch (error) {
-    next(error)
-}
+});
+
+router.get("/:id/add-product", (req, res, next) => {
+  res.render("forms/add_product");
 })
 
 module.exports = router;
