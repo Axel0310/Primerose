@@ -8,7 +8,7 @@ const shops = [
     name: "Maison Francette",
     description : "Cousu main pres du Canal Saint Martin",
     view: 2300,
-    image: "./../public/images/logo-maison-francette.png"
+    image: "/images/logo-maison-francette.png"
   },
   {
     name: "Sezane",
