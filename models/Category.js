@@ -6,7 +6,7 @@ const categorySchema = new Schema ({
         type: [String],
         enum: ["Men", "Women"]
     },
-    category: String,
+    name: String,
 })
 
 const categoryModel = mongoose.model("Category", categorySchema);

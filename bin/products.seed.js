@@ -8,63 +8,63 @@ const categoryModel = require("./../models/Category");
 const categories = [
   {
     genre: ["Men", "Women"],
-    category: "Coats & Jackets",
+    name: "Coats & Jackets",
   },
   {
     genre: ["Women"],
-    category: "Dresses",
+    name: "Dresses",
   },
   {
     genre: ["Men", "Women"],
-    category: "Sweatshirts",
+    name: "Sweatshirts",
   },
   {
     genre: ["Men", "Women"],
-    category: "Jeans",
+    name: "Jeans",
   },
   {
     genre: ["Men", "Women"],
-    category: "Jumpsuits",
+    name: "Jumpsuits",
   },
   {
     genre: ["Men", "Women"],
-    category: "Shorts",
+    name: "Shorts",
   },
   {
     genre: ["Women"],
-    category: "Skirts",
+    name: "Skirts",
   },
   {
     genre: ["Men"],
-    category: "Suits",
+    name: "Suits",
   },
   {
     genre: ["Men", "Women"],
-    category: "Swimwear",
+    name: "Swimwear",
   },
   {
     genre: ["Men", "Women"],
-    category: "Tops",
+    name: "Tops",
   },
   {
     genre: ["Men", "Women"],
-    category: "Tracksuits",
+    name: "Tracksuits",
   },
   {
     genre: ["Men", "Women"],
-    category: "Trousers",
+    name: "Trousers",
   },
   {
     genre: ["Men", "Women"],
-    category: "Workwear",
+    name: "Workwear",
   },
   {
     genre: ["Men", "Women"],
-    category: "Lingerie",
+    name: "Lingerie",
   },
   {
     genre: ["Men"],
-    category: "Underwear",
+    name: "Underwear",
   },
 ];
 
