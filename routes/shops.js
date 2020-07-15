@@ -107,7 +107,7 @@ router.post(
     const shopObj = await shopModel.findById(shop);
     shopObj.products.push(addedProduct._id);
     await shopModel.findByIdAndUpdate(shop, shopObj);
-
+    req.flash("success", "Product successfully added!");
     res.redirect(`/shops/${shop}/add-product`);
   }
 );
