@@ -7,9 +7,9 @@ const categoryModel = require("./../models/Category");
 
 router.get("/", async (req, res, next) => {
   try {
-    const shops = await shopModel.find().sort({name: 1});
+    const shops = await shopModel.find().sort({ name: 1 });
     // res.json(shops);
-    res.render("shops", {shops: shops});
+    res.render("shops", { shops: shops });
   } catch (error) {
     next(error);
   }
@@ -36,9 +36,9 @@ router.get("/:id", async (req, res, next) => {
 router.get("/:id/add-product", async (req, res, next) => {
   try {
     const categories = await categoryModel.find();
-    res.render("forms/add_product", {categories});
+    res.render("forms/add_product", { categories });
   } catch (error) {
-    next(error)
+    next(error);
   }
 });
 
@@ -102,14 +102,23 @@ router.post(
       category,
       sizesAvailable,
       image: req.file ? req.file.path : "/images/default_product.png",
-      shop
+      shop,
     });
     const shopObj = await shopModel.findById(shop);
     shopObj.products.push(addedProduct._id);
     await shopModel.findByIdAndUpdate(shop, shopObj);
 
-    res.redirect(`/shops/${shop}/add-product`)
+    res.redirect(`/shops/${shop}/add-product`);
   }
 );
+
+router.get("/:id/shop-dashboard", async (req, res, next) => {
+  try {
+    const shop = await shopModel.findById(req.params.id).populate({path: "products", populate: {path: "category"}});
+    res.render("shop-dashboard", shop)
+  } catch (error) {
+    next(error)
+  }
+})
 
 module.exports = router;

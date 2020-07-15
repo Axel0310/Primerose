@@ -8,12 +8,18 @@ const shopSchema = new Schema({
     },
     image: String,
     description: String,
-    view: Number,
+    view: {
+        type: Number,
+        default: 0
+    },
     products: [{
         type: Schema.Types.ObjectId,
         ref: "Product"
     }],
-    totalSales: Number,
+    totalSales: {
+        type: Number,
+        default: 0
+    },
     creationDate: {
         type : Date,
         default:Date.now,

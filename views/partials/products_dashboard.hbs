@@ -1,0 +1,33 @@
+<div class="big-container manage-products-wrapper">
+  <h3 class="manage-products-title">Manage your products</h3>
+  <table class="product-manage-table">
+    <thead>
+      <tr class="table-row">
+        <th class="table-head">Product Image</th>
+        <th class="table-head">Product Name</th>
+        <th class="table-head">Product Description</th>
+        <th class="table-head">Product Price</th>
+        <th class="table-head">Product Genre</th>
+        <th class="table-head">Product Category</th>
+        <th class="table-head">Product Sizes</th>
+        <th class="table-head">Product Views</th>
+        <th class="table-head">Product Sells</th>
+        <th class="table-head">Edit</th>
+        <th class="table-head">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each this}}
+      <tr class="table-row">
+        {{> products_dashboard_row this}}
+      </tr>
+      {{/each}}
+      {{#unless this}}
+      <tr>
+        <td colspan="11">Your shop does not have any product yet</td>
+      </tr>
+      {{/unless}}
+    </tbody>
+  </table>
+</div>
