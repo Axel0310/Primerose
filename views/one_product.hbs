@@ -9,23 +9,28 @@
     <img src="{{image}}" alt="img-product" class="product-img">
 </div>
 
+<div class="flexed-item">
+<form action="/user/cart" method="post">
+
 <div class="product-info">
     <div class="product-info-header">
-        <h1 class="product-name">{{name}}</h1>
-        <p class="product-description">{{description}}</p>
-        <p class="product-price">{{price}}€</p>
+    <input class="hidden" type="text" name="name" value = "{{product.name}}">
+    <input class="hidden" type="text" name="price" value = "{{product.price}}">
+     <input class="hidden" type="text" name="id" value = "{{product._id}}">
+
+        <h1 class="product-name">{{product.name}}</h1>
+        <p class="product-description">{{product.description}}</p>
+        <p class="product-price">{{product.price}}€</p>
     </div>
 </div>
-<div class="flexed-item">
-    <form action="/cart" method="post">
-        <select name="select-size" id="select-size"class="select product-select">
+        <select name="size" id="select-size"class="select product-select">
             <option value="">Choose Size</option>
-
-            {{#each sizesAvailable}}
+            {{#each product.sizesAvailable}}
             <option value="{{this.size}}">{{this.size}}</option>
             {{/each}}
         </select>
-        <select name="select-quantity" id="select-quantity" class="select product-select">
+
+        <select name="quantity" id="select-quantity" class="select product-select">
             <option value="">Choose Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -33,8 +38,9 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
+
         <button href="" class="button-primary a-link">Add to cart <i
-                class="fas fa-shopping-cart shop-cart-icon-page"></i></a>
+                class="fas fa-shopping-cart shop-cart-icon-page"></i></button>
     </form>
 </div>
 
