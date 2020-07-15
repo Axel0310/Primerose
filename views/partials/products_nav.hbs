@@ -1,20 +1,28 @@
 <div class="big-container">
     <header class="header">
         <nav class="nav-wrapper nav-categories">
-            <div class="nav-category">
-                <a class="button-primary" id="women-button" href="/products/women" class="flexed-item">
-                    <h2>Women</h2>
-                </a>
+            <div class="nav-category dropdown">
+                 <h2 id="women-button" class="flexed-item">Women</h2>
+                 <div class="dropdown-content">
+                     {{#each this}}
+                        {{#if (includes this.genre "women")}}
+                        <a href="/products/women/{{this._id}}">{{this.name}}</a>
+                        {{/if}}
+                     {{/each}}
+                 </div>
+            </div>
+            <div class="nav-category dropdown">
+                <h2 id="men-button" class="flexed-item">Men</h2>
+                <div class="dropdown-content">
+                     {{#each this}}
+                        {{#if (includes this.genre "men")}}
+                        <a href="/products/men/{{this._id}}">{{this.name}}</a>
+                        {{/if}}
+                     {{/each}}
+                 </div>
             </div>
             <div class="nav-category">
-                <a class="button-primary" id="men-button" href="/products/men" class="flexed-item">
-                    <h2>Men</h2>
-                </a>
-            </div>
-            <div class="nav-category">
-                <a class="button-primary" id="shops-button" href="/shops" class="flexed-item">
-                    <h2>Shops</h2>
-                </a>
+                <a href="/shops" class="flexed-item">Shops</a>
             </div>
         </nav>
     </header>

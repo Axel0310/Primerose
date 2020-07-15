@@ -11,7 +11,7 @@ const shopSchema = new Schema({
     view: Number,
     products: [{
         type: Schema.Types.ObjectId,
-        ref: "product"
+        ref: "Product"
     }],
     totalSales: Number,
     creationDate: {
