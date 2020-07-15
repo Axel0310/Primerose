@@ -6,6 +6,7 @@ const categoryModel = require("./../models/Category")
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
+  console.log(req.session.currentUser)
   try {
   const topShops = await shopModel.find().sort({view:-1}).limit(5);
   const newShops = await shopModel.find().sort({date:1}).limit(5);

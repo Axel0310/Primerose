@@ -9,8 +9,9 @@
                     </a>
                 </div>
             </div>
+      
             <div class="flexed-item nav-end">
-                {{#unless isLoggedIn}}
+                {{#unless @root.isLoggedIn}}
                 <a href="#" id="nav_login" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Sign in</span>
                 </a>
@@ -18,7 +19,10 @@
                     <span class="btn-text">Sign up</span>
                 </a>
                 {{/unless}}
-                {{#if isLoggedIn}}
+                {{#if @root.isLoggedIn}}
+                <a href="/shops/{{currentUser.shop}}/shop-dashboard" class="button-ternary flexed-item nav-end-item">
+                    <span class="btn-text">My shop</span>
+                </a>
                 <a href="#" id="nav_logout" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Log out</span>
                 </a>

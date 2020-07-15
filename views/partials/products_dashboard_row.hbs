@@ -1,0 +1,45 @@
+<td class="table-division">
+  <div><img src="{{this.image}}" alt="img" class="table-image" /></div>
+</td>
+<td class="table-division">
+  <div>{{this.name}}</div>
+</td>
+<td class="table-division">
+  <div>{{this.description}}</div>
+</td>
+<td class="table-division">
+  <div>{{this.price}}€</div>
+</td>
+<td class="table-division">
+  <div>{{this.genre}}</div>
+</td>
+<td class="table-division">
+  <div>{{this.category.name}}</div>
+</td>
+<td class="table-division">
+  <div>
+      {{#unless this.sizesAvailable}}
+        No size available
+      {{/unless}}
+      {{#each this.sizesAvailable}}
+        {{this.size}},
+      {{/each}}
+      </div>
+</td>
+<td class="table-division">
+  <div>{{this.view}}</div>
+</td>
+<td class="table-division">
+  <div>{{this.sellsCount}}</div>
+</td>
+
+<td class="table-division">
+  <a href="" data-id-product="{{this._id}}">
+   <i class="fa fa-edit table-icon"></i>
+  </a>
+</td>
+<td class="table-division">
+  <a href="#" data-id-product="{{this._id}}">
+    <i class="fa fa-trash table-icon"></i>
+  </a>
+</td>

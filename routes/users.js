@@ -20,6 +20,7 @@ router.post("/cart", async (req, res, next) =>{
     req.session.userCart.push(req.body);
   }
   const cart = req.session.userCart;
+  cart.map
   res.render("cart", {cart})
 });
 
