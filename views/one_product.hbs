@@ -17,15 +17,26 @@
     </div>
 </div>
 <div class="flexed-item">
-    <select name="main-category" id="main_category" class="select product-select">
-        <option value="">Choose Size</option>
+    <form action="/cart" method="post">
+        <select name="select-size" id="select-size"class="select product-select">
+            <option value="">Choose Size</option>
 
-        {{#each sizesAvailable}}
-        <option value="{{this.size}}">{{this.size}}</option>
-        {{/each}}
-    </select>
-
-    <a href="" class="button-primary a-link">Add to cart <i class="fas fa-shopping-cart shop-cart-icon-page"></i></a>
+            {{#each sizesAvailable}}
+            <option value="{{this.size}}">{{this.size}}</option>
+            {{/each}}
+        </select>
+        <select name="select-quantity" id="select-quantity" class="select product-select">
+            <option value="">Choose Quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button href="" class="button-primary a-link">Add to cart <i
+                class="fas fa-shopping-cart shop-cart-icon-page"></i></a>
+    </form>
 </div>
+
 
 </div>
