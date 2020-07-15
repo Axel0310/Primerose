@@ -121,4 +121,17 @@ router.get("/:id/shop-dashboard", async (req, res, next) => {
   }
 })
 
+router.get("/:id/delete-product/:prod", async (req, res, next) => {
+  try {
+    await productModel.findByIdAndDelete(req.params.prod);
+    const shop = await shopModel.findById(req.params.id);
+    const indexProd = shop.products.findIndex( prodId => prodId == req.params.prod);
+    shop.products.splice(indexProd, 1);
+    await shopModel.findByIdAndUpdate(req.params.id, shop);
+    res.redirect(`/shops/${req.params.id}/shop-dashboard`);
+  } catch (error) {
+    next(error);
+  }
+})
+
 module.exports = router;

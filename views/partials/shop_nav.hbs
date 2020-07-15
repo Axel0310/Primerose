@@ -20,7 +20,7 @@
                 </a>
                 {{/unless}}
                 {{#if @root.isLoggedIn}}
-                <a href="/shops/{{currentUser.shop}}/shop-dashboard" class="button-ternary flexed-item nav-end-item">
+                <a href="/shops/{{@root.currentUser.shop}}/shop-dashboard" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">My shop</span>
                 </a>
                 <a href="#" id="nav_logout" class="button-ternary flexed-item nav-end-item">
