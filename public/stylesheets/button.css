@@ -50,7 +50,7 @@ button:focus {
   font-size: .9rem;
 } */
 
-#men-button, #women-button, #shops-button {
+.button-one {
   color: white;
   background: #C6D2ED;
   border: 1px solid;
@@ -58,11 +58,31 @@ button:focus {
   transition: all 0.2s ease-in;
   transition-property: color, background;
   border-radius: 0.2rem;
-  padding: 0.5rem 0.8rem;
+  padding: 7px;
   width:100px;
+  margin:auto;
 }
 
-#men-button:hover, #women-button:hover, #shops-button:hover {
+.button-one:hover {
+    color: #29335C;
+    background: #E7E6F7;
+    border: 1px solid;
+}
+
+.button-two {
+  color: white;
+  background: #C6D2ED;
+  border: 1px solid;
+  font-size: 13px;
+  transition: all 0.2s ease-in;
+  transition-property: color, background;
+  border-radius: 0.2rem;
+  padding: 0.5rem 0.8rem;
+  width:100px;
+  text-align:center;
+}
+
+.button-two:hover {
     color: #29335C;
     background: #E7E6F7;
     border: 1px solid;

@@ -2,7 +2,7 @@
     <header class="header">
         <nav class="nav-wrapper nav-categories">
             <div class="nav-category dropdown">
-                 <h2 id="women-button" class="flexed-item">Women</h2>
+                 <h2 class="flexed-item button-one">Women</h2>
                  <div class="dropdown-content">
                      {{#each this}}
                         {{#if (includes this.genre "women")}}
@@ -12,7 +12,7 @@
                  </div>
             </div>
             <div class="nav-category dropdown">
-                <h2 id="men-button" class="flexed-item">Men</h2>
+                <h2 class="flexed-item button-one">Men</h2>
                 <div class="dropdown-content">
                      {{#each this}}
                         {{#if (includes this.genre "men")}}
@@ -22,7 +22,7 @@
                  </div>
             </div>
             <div class="nav-category">
-                <a href="/shops" class="flexed-item">Shops</a>
+                <a href="/shops" class="flexed-item button-one">SHOPS</a>
             </div>
         </nav>
     </header>
