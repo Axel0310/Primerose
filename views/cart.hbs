@@ -5,34 +5,36 @@
         <tr>
           <th>Product Name</th>
           <th>Unit Price</th>
-          <th>Quantity</th>
           <th>Size</th>
+          <th>Quantity</th>
           <th>Subtotal</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
+      {{#each cart}}
         <tr class="product">
           <td class="name">
             <span>{{this.name}}</span>
           </td>
           <td class="price">€<span>{{this.price}}</span></td>
           <td class="quantity">
-            <input type="number" value="{{this.select-quantity}}" min="0" placeholder="Quantity" />
+            <input type="text" value="{{this.size}}" placeholder="Size" />
           </td>
       <td class="size">
-            <input type="number" value="{{this.select-size}}" placeholder="Size" />
+            <input type="number" value="{{this.quantity}}" placeholder="Quantity" />
           </td>
           <td class="subtotal">€<span>0</span></td>
           <td class="action">
             <button class="btn btn-remove">Remove</button>
           </td>
         </tr>
+        {{/each}}
+        </tbody>
     </table>
     <p class="calculate-total">
       <button id="calculate"> Calculate Prices</button>
     </p>
     <h2 id="total-value">Total: $<span>0</span></h2>
-    <script type="text/javascript" src="./js/index.js"></script>
   </body>
 </html>

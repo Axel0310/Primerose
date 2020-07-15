@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require("express-session")
 const hbs = require("hbs");
 require("./config/mongodb");
 require("./helpers/hbs");
@@ -19,13 +20,25 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+app.use(function(req,res,next) {
+  console.log(req.session)
+  next();
+})
 
 //Routers
 app.use('/', require('./routes/index'));
 app.use('/products', require('./routes/products'));
 app.use('/shops', require('./routes/shops'));
+app.use('/user', require('./routes/users'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
