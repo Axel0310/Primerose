@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session")
 const hbs = require("hbs");
+const flash = require("connect-flash");
 const dev_mode = true; //To enable developpement middlewares
 require("./config/mongodb");
 require("./helpers/hbs");
@@ -30,12 +31,15 @@ app.use(session({
 }))
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(flash());
+
 if (dev_mode === true) {
   app.use(require("./middlewares/devMode")); // triggers dev mode during dev phase
   app.use(require("./middlewares/debugSessionInfos")); // displays session debug
 }
 
 app.use(require("./middlewares/exposeLoginStatus"));
+app.use(require("./middlewares/exposeFlashMessage"));
 
 //Routers
 app.use('/', require('./routes/index'));

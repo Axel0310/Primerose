@@ -1,7 +1,15 @@
-function search_product() {
-    let input = document.getElementById('searchbar').value ;
-    input=input.toLowerCase(); 
-    let product = document.getElementsByClassName('animals'); 
+let searchBar = document.getElementById("search-bar");
+let searchBtn = document.getElementById("search-button");
 
-        const products = await productModel.find({ genre: req.params.genre, category: req.params.cat})
+searchBtn.onclick = console.log("the search btn was clicked yay!");
+
+function search_product() {
+    let input = document.getElementById('search-bar').value ;
+    input=input.toLowerCase(); 
+const products = await productModel.insertMany();
+for (let i=0; i<products.length; i++) {
+    if(products[i].name.includes(input)) {
+        console.log("here are the search results >>>>", products[i]);
+    }
+}
 }
