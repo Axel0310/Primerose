@@ -20,8 +20,20 @@ router.post("/cart", async (req, res, next) =>{
     req.session.userCart.push(req.body);
   }
   const cart = req.session.userCart;
-  cart.map
-  res.render("cart", {cart})
+  console.log("cart>>>", cart);
+  let total = 0;
+
+cart.forEach( (productInfo) => {
+  let productPrice = Number(productInfo.price);
+  let productQuantity = Number(productInfo.quantity);
+
+const subtotal = productPrice*productQuantity;
+productInfo.subtotal = subtotal;
+total +=subtotal;
+  console.log("cart>>>", cart);
+
+})
+  res.render("cart", {cart, total})
 });
 
 router.get("/cart", async (req, res, next) => {

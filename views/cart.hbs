@@ -24,7 +24,7 @@
       <td class="size">
             <input type="number" value="{{this.quantity}}" placeholder="Quantity" />
           </td>
-          <td class="subtotal">€<span>0</span></td>
+          <td class="subtotal">€<span>{{this.subtotal}}</span></td>
           <td class="action">
             <a href="/user/cart/delete/{{this.id}}" class="btn btn-remove">Remove</a>
           </td>
@@ -32,9 +32,6 @@
         {{/each}}
         </tbody>
     </table>
-    <p class="calculate-total">
-      <button id="calculate"> Calculate Prices</button>
-    </p>
-    <h2 id="total-value">Total: $<span>0</span></h2>
+    <h2 id="total-value">Total: $<span>{{total}}</span></h2>
   </body>
 </html>
