@@ -107,31 +107,136 @@ router.post(
     const shopObj = await shopModel.findById(shop);
     shopObj.products.push(addedProduct._id);
     await shopModel.findByIdAndUpdate(shop, shopObj);
-    req.flash("success", "Product successfully added!");
+    req.flash("success", `Product "${name}" successfully added!`);
     res.redirect(`/shops/${shop}/add-product`);
   }
 );
 
 router.get("/:id/shop-dashboard", async (req, res, next) => {
   try {
-    const shop = await shopModel.findById(req.params.id).populate({path: "products", populate: {path: "category"}});
-    res.render("shop-dashboard", shop)
+    const shop = await shopModel
+      .findById(req.params.id)
+      .populate({ path: "products", populate: { path: "category" } });
+    res.render("shop-dashboard", shop);
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
 
 router.get("/:id/delete-product/:prod", async (req, res, next) => {
   try {
     await productModel.findByIdAndDelete(req.params.prod);
     const shop = await shopModel.findById(req.params.id);
-    const indexProd = shop.products.findIndex( prodId => prodId == req.params.prod);
+    const indexProd = shop.products.findIndex(
+      (prodId) => prodId == req.params.prod
+    );
     shop.products.splice(indexProd, 1);
     await shopModel.findByIdAndUpdate(req.params.id, shop);
     res.redirect(`/shops/${req.params.id}/shop-dashboard`);
   } catch (error) {
     next(error);
   }
-})
+});
+
+router.get("/:id/update-product/:prod", async (req, res, next) => {
+  function getSizeQuantity(prod, val) {
+    const sizeIndex = prod.sizesAvailable.findIndex(
+      (sizeObj) => sizeObj.size === val
+    );
+    return sizeIndex === -1 ? 0 : prod.sizesAvailable[sizeIndex].quantity;
+  }
+
+  try {
+    const product = await productModel.findById(req.params.prod);
+    const categories = await categoryModel.find();
+    res.locals.xxsSize = getSizeQuantity(product, "XXS");
+    res.locals.xsSize = getSizeQuantity(product, "XS");
+    res.locals.sSize = getSizeQuantity(product, "S");
+    res.locals.mSize = getSizeQuantity(product, "M");
+    res.locals.lSize = getSizeQuantity(product, "L");
+    res.locals.xlSize = getSizeQuantity(product, "XL");
+    res.locals.xxlSize = getSizeQuantity(product, "XXL");
+    res.render("forms/update_product", {
+      product: product,
+      categories: categories,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post(
+  "/:id/update-product/:prod",
+  uploader.single("picture"),
+  async (req, res, next) => {
+    try {
+      const {
+        name,
+        description,
+        price,
+        genre,
+        category,
+        qtyXXS,
+        qtyXS,
+        qtyS,
+        qtyM,
+        qtyL,
+        qtyXL,
+        qtyXXL,
+      } = req.body;
+
+      const inputQuantities = [
+        {
+          size: "XXS",
+          quantity: qtyXXS,
+        },
+        {
+          size: "XS",
+          quantity: qtyXS,
+        },
+        {
+          size: "S",
+          quantity: qtyS,
+        },
+        {
+          size: "M",
+          quantity: qtyM,
+        },
+        {
+          size: "L",
+          quantity: qtyL,
+        },
+        {
+          size: "XL",
+          quantity: qtyXL,
+        },
+        {
+          size: "XXL",
+          quantity: qtyXXL,
+        },
+      ];
+      const sizesAvailable = inputQuantities.filter(
+        (size) => size.quantity > 0
+      );
+      const product = await productModel.findById(req.params.prod);
+      product.name = name;
+      product.description = description;
+      product.price = price;
+      product.genre = genre;
+      product.category = category;
+      product.sizesAvailable = sizesAvailable;
+      if (req.file) product.image = req.file.path;
+
+      const updatedProduct = await productModel.findByIdAndUpdate(
+        req.params.prod,
+        product
+      );
+      req.flash("success", `Product "${name}" successfully updated!`);
+      res.redirect(`/shops/${req.params.id}/shop-dashboard`);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 module.exports = router;
