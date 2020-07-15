@@ -4,24 +4,76 @@ const uploader = require("./../config/cloudinary");
 const shopModel = require("./../models/Shop");
 const productModel = require("./../models/Product");
 const categoryModel = require("./../models/Category");
+const userModel = require("./../models/User");
 
 router.get("/", async (req, res, next) => {
   try {
     const shops = await shopModel.find().sort({ name: 1 });
-    // res.json(shops);
     res.render("shops", { shops: shops });
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/create", async (req, res, next) => {
+router.get("/create", (req, res) => {
+    res.render("forms/create_shop");
+});
+
+router.post("/create", uploader.single("image"), async (req, res, next) => {
   try {
-    res.json(await shopModel.create(req.body));
+    const newShop = req.body;
+    newShop.image = req.file ? req.file.path : "/images/default_product.png";
+    const createdShop = await shopModel.create(newShop);
+    const user = await userModel.findById(req.session.currentUser._id)
+    user.shop = createdShop._id;
+    await userModel.findByIdAndUpdate(user._id, user);
+    req.session.currentUser.shop = user.shop;
+    req.flash("success", `Your shop has been successfully created!`);
+    res.redirect(`/shops/${user.shop}/shop-dashboard`);
   } catch (error) {
     next(error);
   }
 });
+
+router.get("/update", async (req, res) => {
+  res.render("forms/update_shop", await shopModel.findById(req.session.currentUser.shop));
+});
+
+router.post("/update", uploader.single("image"), async (req, res, next) => {
+  try {
+    const updatedShop = req.body;
+    if(req.file) updatedShop.image = req.file.path;
+    const shopId = req.session.currentUser.shop;
+    const shop = await shopModel.findByIdAndUpdate(shopId, updatedShop);
+    req.flash("success", `Your shop has been successfully updated!`);
+    res.redirect(`/shops/${shopId}/shop-dashboard`);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/delete", async (req, res, next) => {
+  try {
+    const shopId = req.session.currentUser.shop;
+    const products = (await shopModel.findById(shopId).select("products")).products;
+    const promisesArr = [];
+    products.forEach( prodId => {
+      promisesArr.push(productModel.findByIdAndDelete(prodId))
+    });
+    await Promise.all(promisesArr);
+    await shopModel.findByIdAndDelete(shopId);
+
+    const userId = req.session.currentUser._id;
+    const user = await userModel.findById(userId);
+    user.shop = null;
+    await userModel.findByIdAndUpdate(userId, user);
+    req.session.currentUser.shop = null;
+    req.flash("success", `Your shop has been successfully removed!`);
+    res.redirect("/");
+  } catch (error) {
+    next(error);
+  }
+})
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -44,7 +96,7 @@ router.get("/:id/add-product", async (req, res, next) => {
 
 router.post(
   "/:id/add-product",
-  uploader.single("picture"),
+  uploader.single("image"),
   async (req, res, next) => {
     const {
       name,
@@ -167,7 +219,7 @@ router.get("/:id/update-product/:prod", async (req, res, next) => {
 
 router.post(
   "/:id/update-product/:prod",
-  uploader.single("picture"),
+  uploader.single("image"),
   async (req, res, next) => {
     try {
       const {
