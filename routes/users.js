@@ -23,4 +23,22 @@ router.post("/cart", async (req, res, next) =>{
   res.render("cart", {cart})
 });
 
+router.get("/cart/delete/:id", async (req, res, next) => {
+  try {
+   const cart = req.session.userCart; 
+   console.log(req.params.id);
+   const isProductId = (productInfo) => {
+     productInfo.id === req.params.id;
+   }
+   const productIndex = cart.findIndex(isProductId);
+   console.log("this is the product index>>>", productIndex)
+console.log("this is the cart object before splice", cart);
+cart.splice(productIndex,1);
+console.log("this is the cart object after splice", cart)
+    // res.redirect("cart");
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
