@@ -5,10 +5,11 @@ module.exports = function exposeLoginStatus(req, res, next) {
       res.locals.isLoggedIn = false;
       res.locals.isAdmin = false;
     } else {
+      console.log("ici")
       // l'user correspondant à ce client est bien stocké en session
       res.locals.currentUser = req.session.currentUser;
       res.locals.isLoggedIn = true;
-      res.locals.isAdmin = req.session.currentUser.role === "admin";
+      res.locals.isAdmin = req.session.currentUser.profil === "admin";
     }
     next();
   };
