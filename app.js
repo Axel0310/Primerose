@@ -27,12 +27,7 @@ app.use(session({
 }))
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-app.use(function(req,res,next) {
-  console.log(req.session)
-  next();
-})
+app.use(require("./middleware/exposeLoginStatus"));
 
 //Routers
 app.use('/', require('./routes/index'));
