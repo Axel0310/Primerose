@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const shopModel = require("../models/Shop");
-const categoryModel = require("./../models/Category")
+const categoryModel = require("./../models/Category");
+const productModel = require("./../models/Product");
 
 
 /* GET home page. */
@@ -20,22 +21,9 @@ router.get('/', async (req, res, next) => {
 
 router.get("/search-results", async (req,res,next) => {
   try {
-    let searchResults = []
-    let input = req.body;
-    console.log("the input is >>>", input);
-
-    input=input.toLowerCase(); 
-
-  const products = await productModel.insertMany();
-    console.log("here is the list of products >>>", products);
-
-for (let i=0; i<products.length; i++) {
-    if(products[i].name.includes(input)) {
-        console.log("here are the search results >>>>", products[i]);
-        searchResults.push(products[i]);
-        return searchResults;
-    }
-}
+    let searchResults = [];
+    let input = req.query.search;
+   searchResults = await productModel.find({name: {$regex: input, $options: "i"}});
 res.render("search_results", {searchResults});
   }
   catch (error) {
