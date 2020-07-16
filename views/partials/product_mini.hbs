@@ -1,10 +1,8 @@
 <div class="product-mini">
-<a href="/products/detailed/{{this._id}}">
-    <div class="product-img">
-        <img src="{{this.image}}" alt="{{this.name}}">
+    <div class="product-img-mini" style="background: url({{this.image}}) center / contain no-repeat"></div>
+    <div class="product-info-wrapper">
+        <p class="product-name">{{this.name}}</p>
+        <p class="product-price">{{this.price}}€</p>
+        <a href="/products/detailed/{{this._id}}" class="product-link">See product</a>
     </div>
-    <p class="product-name">{{this.name}}</p>
-    <p class="product-price">{{this.price}}€</p>
-    <a href="/products/detailed/{{this._id}}" class="button-two">See product</a>
-</a>
 </div>

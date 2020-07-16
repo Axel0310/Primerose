@@ -22,6 +22,9 @@
             <a href="/shops/{{@root.currentUser.shop}}/shop-dashboard">
                 <span class="shop-nav-item btn-shop">My shop</span>
             </a>
+            <a href="/user/accountinformation">
+                <span class="shop-nav-item btn-shop">My account</span>
+            </a>
             {{/if}}
             {{#unless @root.currentUser.shop}}
             <a href="/shops/create">

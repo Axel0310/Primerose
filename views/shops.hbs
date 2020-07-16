@@ -1,11 +1,22 @@
-<h1>All shops</h1>
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h1 class="section-title">All Shops</h1>
+    <div class="line"></div>
+</div>
 
 {{#unless shops}}
 <p>Sorry, there are no shops yet !</p>
 <p>You are a fashion designer and you want to create your shop?</p>
-<a href="#"> Create your shop here</a>
+{{#if isLoggedIn}}
+<a href="/shops/create"> Create your shop here</a>
+{{/if}}
+{{#unless isLoggedIn}}
+<a href="/signin"> Create your shop here</a>
+{{/unless}}
 {{/unless}}
 
-{{#each shops}}
-{{> shop_mini }}
-{{/each}}
+<div class="shops-wrapper">
+    {{#each shops}}
+    {{> shop_mini }}
+    {{/each}}
+</div>

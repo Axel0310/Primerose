@@ -1,8 +1,12 @@
-<h1>Products</h1>
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h1 class="section-title">Products</h1>
+    <div class="line"></div>
+</div>
 
 {{#unless products}}
 <p>Sorry, there are no products in this category yet !</p>
-<p>You are a fashion designer and you do {{category}} for {{gender}}?</p>
+<p>You are a fashion designer and you want to add your products?</p>
 {{#if isLoggedIn}}
 <a href="/shops/create"> Create your shop here</a>
 {{/if}}
@@ -11,6 +15,8 @@
 {{/unless}}
 {{/unless}}
 
-{{#each products}}
-{{> product_mini }}
-{{/each}}
+<div class="products-wrapper">
+    {{#each products}}
+    {{> product_mini }}
+    {{/each}}
+</div>
