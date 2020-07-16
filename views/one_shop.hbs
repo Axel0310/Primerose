@@ -2,12 +2,15 @@
         <h1 class="shop-name">{{shop.name}}</h1>
         <p class="shop-description">{{shop.description}}</p>
         <img src="{{shop.image}}" alt="img-product" class="product-img">
+        <a href="/user/favorites/shop/{{shop._id}}">
+                <i class="far fa-heart"></i>
+        </a>
 </div>
 
 <div class="shop-product-gallery">
 
-{{#each products}}
-{{> product_mini }}
-{{/each}}
+        {{#each products}}
+        {{> product_mini }}
+        {{/each}}
 
 </div>
