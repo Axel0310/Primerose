@@ -40,7 +40,7 @@
   color: whitesmoke;
   border-radius: 5px;
   padding: 5px;
-  transition: all 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
 }
 
 .btn-shop:hover {
@@ -78,6 +78,11 @@
 
 #search-input {
   border: none;
+  border: 2px solid var(--color-babyPink);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: 25vw;
+  height: 35px;
 }
 
 #categories-nav {
@@ -127,8 +132,8 @@
   align-self: center;
 }
 
-#shop-btn {
-  transition: all 0.4s linear;
+#shop-btn:hover {
+  transition: color 0.2s ease-in;
 }
 
 #shop-btn:hover {

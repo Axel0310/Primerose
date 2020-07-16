@@ -1,0 +1,37 @@
+table {
+    width: 80vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+td,
+th {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+    background-color: var(--color-coral);
+    border-radius: 10px;
+    color: whitesmoke;
+}
+
+tr {
+    background-color: var(--color-linen);
+    border-radius: 10px;
+}
+
+tfoot td {
+    background-color: white;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+tfoot td:last-child {
+    text-align: start;
+}
+
+.btn-remove {
+    color: var(--color-morningBlue);
+}

@@ -169,7 +169,7 @@ router.get("/:id/shop-dashboard", async (req, res, next) => {
     const shop = await shopModel
       .findById(req.params.id)
       .populate({ path: "products", populate: { path: "category" } });
-    res.render("shop-dashboard", shop);
+    res.render("shop-dashboard", {shop});
   } catch (error) {
     next(error);
   }

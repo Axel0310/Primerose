@@ -52,7 +52,7 @@ select:focus {
 }
 
 .sign-form {
-  background-color: var(--color-morningBlue);
+  background-color: var(--color-linen);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -79,13 +79,21 @@ select:focus {
 
 .sign-form button {
   border: none;
-  background-color: var(--color-yellow);
+  background-color: var(--color-coral);
   border-radius: 5px;
-  padding: 3px;
+  padding: 5px;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--color-morningBlue);
+  color: whitesmoke;
   margin-bottom: 10px;
+}
+
+.sign-form input {
+  border-color: var(--color-coral);
+}
+
+.sign-form button:hover {
+  color: var(--color-yellow);
 }
 
 .sign-form-link {

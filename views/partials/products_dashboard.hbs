@@ -1,34 +1,39 @@
-<div class="big-container manage-products-wrapper">
-  <h3 class="manage-products-title">Manage your products</h3>
-  <a href="/shops/{{@root.currentUser.shop}}/add-product">Add a new product</a>
-  <table class="product-manage-table">
-    <thead>
-      <tr class="table-row">
-        <th class="table-head">Product Image</th>
-        <th class="table-head">Product Name</th>
-        <th class="table-head">Product Description</th>
-        <th class="table-head">Product Price</th>
-        <th class="table-head">Product Genre</th>
-        <th class="table-head">Product Category</th>
-        <th class="table-head">Product Sizes</th>
-        <th class="table-head">Product Views</th>
-        <th class="table-head">Product Sells</th>
-        <th class="table-head">Edit</th>
-        <th class="table-head">Delete</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {{#each this}}
-      <tr class="table-row">
-        {{> products_dashboard_row this}}
-      </tr>
-      {{/each}}
-      {{#unless this}}
-      <tr>
-        <td colspan="11">Your shop does not have any product yet</td>
-      </tr>
-      {{/unless}}
-    </tbody>
-  </table>
+<div class="title-wrapper">
+  <div class="line"></div>
+  <h1 class="section-title">Manage my products</h1>
+  <div class="line"></div>
 </div>
+
+<div class="wrapper-flex-col">
+  <a href="/shops/{{@root.currentUser.shop}}/add-product" class="btn-shop-add-product">Add a new product</a>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Product Image</th>
+      <th>Product Name</th>
+      <th>Product Description</th>
+      <th>Product Price</th>
+      <th>Product Genre</th>
+      <th>Product Category</th>
+      <th>Product Sizes</th>
+      <th>Product Views</th>
+      <th>Product Sells</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each this}}
+    <tr>
+      {{> products_dashboard_row this}}
+    </tr>
+    {{/each}}
+    {{#unless this}}
+    <tr>
+      <td colspan="11">Your shop does not have any product yet</td>
+    </tr>
+    {{/unless}}
+  </tbody>
+</table>

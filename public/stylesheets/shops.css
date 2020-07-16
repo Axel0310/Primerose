@@ -44,3 +44,42 @@
 .shop-link:hover {
     color: var(--color-morningBlue);
 }
+
+.btn-shop-update{
+  padding: 5px;
+  background-color: var(--color-morningBlue);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.btn-shop-update:hover{
+  color: var(--color-yellow)
+}
+
+.btn-shop-delete{
+  padding: 5px;
+  background-color: var(--color-coral);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.btn-shop-delete:hover{
+  color: var(--color-yellow)
+}
+
+.btn-shop-add-product{
+  padding: 5px;
+  background-color: var(--color-morningBlue);
+  border-radius: 5px;
+}
+
+.btn-shop-add-product:hover{
+  color: var(--color-yellow)
+}
+
+.wrapper-flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

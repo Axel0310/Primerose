@@ -1,27 +1,23 @@
 <div class="title-wrapper">
     <div class="line"></div>
-    <h1 class="section-title">Signin</h1>
+    <h1 class="section-title">Sign in</h1>
     <div class="line"></div>
 </div>
 
-<form method="post" action="/signin" class="form">
+<form method="post" action="/signin" class="sign-form">
 
     <div class="form-field">
-        <label class="label" for="email">Email</label>
+        <label for="email">Email</label>
         <input class="input" id="email" name="email" type="text" value="test@fake.com"
             placeholder="Enter your email address" required>
     </div>
 
     <div class="form-field">
-        <label class="label" for="password">Password</label>
+        <label for="password">Password</label>
         <input class="input" id="email" name="password" type="password" value="mypassword"
             placeholder="Enter your password" required>
     </div>
 
     <button class="btn">Validate</button>
-
+    <a class="sign-form-link" href="/signup">No account yet? Signup now!</a>
 </form>
-<hr>
-<p>
-    No account yet ? <a class="link" href="/signup">Signup now!</a>
-</p>
