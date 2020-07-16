@@ -1,0 +1,13 @@
+<h1>{{this.firstName}}</h1>
+<h1>{{this.lastName}}</h1>
+<p>{{this.email}}</p>
+
+<h1>Favorite products</h1>
+
+{{#each this.favoriteProducts}}
+{{> product_mini }}
+{{/each}}
+
+{{#each this.favoriteShops}}
+{{> shop_mini }}
+{{/each}}

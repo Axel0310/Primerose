@@ -8,6 +8,13 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get("/accountinformation", (req,res,next) => {
+  const favoriteProducts = req.session.currentUser.favoriteProducts;
+  const favoriteShops = req.session.currentUser.favoriteShops;
+  console.log("here are the user's favoriteproducts >>>", favoriteProducts);
+  res.render("my_account_info", {favoriteProducts, favoriteShops});
+})
+
 router.post("/cart", async (req, res, next) =>{
 
   if(req.session.userCart)
