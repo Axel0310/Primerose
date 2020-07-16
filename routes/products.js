@@ -32,13 +32,13 @@ router.get("/:genre/:cat", async (req, res, next) => {
   }
 });
 
-router.post("/create", async (req, res, next) =>{
-    try {
-        res.json(await productModel.create(req.body));
-    } catch (error) {
-        next(error)
-    }
-});
+// router.post("/create", async (req, res, next) =>{
+//     try {
+//         res.json(await productModel.create(req.body));
+//     } catch (error) {
+//         next(error)
+//     }
+// });
 
 
 

@@ -17,20 +17,27 @@
       
             <div class="flexed-item nav-end">
                 {{#unless @root.isLoggedIn}}
-                <a href="#" id="nav_login" class="button-ternary flexed-item nav-end-item">
+                <a href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Sign in</span>
                 </a>
-                <a href="#" id="nav_login" class="button-ternary flexed-item nav-end-item">
+                <a href="/signup" id="nav_login" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Sign up</span>
                 </a>
                 {{/unless}}
                 {{#if @root.isLoggedIn}}
-                <a href="/shops/{{@root.currentUser.shop}}/shop-dashboard" class="button-ternary flexed-item nav-end-item">
-                    <span class="btn-text">My shop</span>
-                </a>
-                <a href="#" id="nav_logout" class="button-ternary flexed-item nav-end-item">
-                    <span class="btn-text">Log out</span>
-                </a>
+                    {{#if @root.currentUser.shop}}
+                    <a href="/shops/{{@root.currentUser.shop}}/shop-dashboard" class="button-ternary flexed-item nav-end-item">
+                        <span class="btn-text">My shop</span>
+                    </a>
+                    {{/if}}
+                    {{#unless @root.currentUser.shop}}
+                    <a href="/shops/create" class="button-ternary flexed-item nav-end-item">
+                        <span class="btn-text">Create my shop</span>
+                    </a>
+                    {{/unless}}
+                    <a href="/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
+                        <span class="btn-text">Log out</span>
+                    </a>
                 {{/if}}
                 <a href = "/user/cart">
                 <i class="fas fa-shopping-cart shop-cart-icon nav-end-item"></i>

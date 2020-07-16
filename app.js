@@ -7,7 +7,7 @@ const logger = require('morgan');
 const session = require("express-session")
 const hbs = require("hbs");
 const flash = require("connect-flash");
-const dev_mode = true; //To enable developpement middlewares
+const dev_mode = false; //To enable developpement middlewares
 require("./config/mongodb");
 require("./helpers/hbs");
 
@@ -46,6 +46,7 @@ app.use('/', require('./routes/index'));
 app.use('/products', require('./routes/products'));
 app.use('/shops', require('./routes/shops'));
 app.use('/user', require('./routes/users'));
+app.use('/', require('./routes/auth'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

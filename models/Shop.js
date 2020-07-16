@@ -6,7 +6,10 @@ const shopSchema = new Schema({
         type: String,
         unique: true
     },
-    image: String,
+    image: {
+        type: String,
+        default: "/images/default_product.png"
+    },
     description: String,
     view: {
         type: Number,

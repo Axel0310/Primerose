@@ -1,20 +1,20 @@
-<form action="/shops/{{currentUser.shop}}/add-product" method="post" class="add-product-form" enctype="multipart/form-data">
-    <h3 class="form-title">Add a new product</h3>
+<form action="/shops/{{currentUser.shop}}/update-product/{{product._id}}" method="post" class="edit-product-form" enctype="multipart/form-data">
+    <h3 class="form-title">Update product</h3>
     <div class="form-item-wrapper flexed-item">
         <label for="product-name" class="label">Product name</label>
         <input id="product-name" name="name" type="text" class="input-text input" placeholder="ex: Nice dress"
-            value="Fake dress" required>
+            value="{{product.name}}" required>
     </div>
 
     <div class="form-item-wrapper flexed-item">
         <label for="product-desc" class="label">Product description</label>
         <input id="product-desc" name="description" type="text" class="input-text input" placeholder="ex: Swag"
-            value="Fake dress description" required>
+            value="{{product.description}}" required>
     </div>
 
     <div class="form-item-wrapper flexed-item">
         <label for="product-price" class="label">Product price</label>
-        <input id="product-price" name="price" type="number" class="input-text input" value="50" required>
+        <input id="product-price" name="price" type="number" class="input-text input" value="{{product.price}}" required>
     </div>
 
     <div class="form-item-wrapper flexed-item">
@@ -40,13 +40,13 @@
         <tbody>
             <tr>
                 <td>Quantity</td>
-                <td><input name="qtyXXS" type="number" class="input-text input" value="2"></td>
-                <td><input name="qtyXS" type="number" class="input-text input" value="0"></td>
-                <td><input name="qtyS" type="number" class="input-text input" value="3"></td>
-                <td><input name="qtyM" type="number" class="input-text input" value="5"></td>
-                <td><input name="qtyL" type="number" class="input-text input" value="2"></td>
-                <td><input name="qtyXL" type="number" class="input-text input" value="0"></td>
-                <td><input name="qtyXXL" type="number" class="input-text input" value="1"></td>
+                <td><input name="qtyXXS" type="number" class="input-text input" value="{{xxsSize}}"></td>
+                <td><input name="qtyXS" type="number" class="input-text input" value="{{xsSize}}"></td>
+                <td><input name="qtyS" type="number" class="input-text input" value="{{sSize}}"></td>
+                <td><input name="qtyM" type="number" class="input-text input" value="{{mSize}}"></td>
+                <td><input name="qtyL" type="number" class="input-text input" value="{{lSize}}"></td>
+                <td><input name="qtyXL" type="number" class="input-text input" value="{{xlSize}}"></td>
+                <td><input name="qtyXXL" type="number" class="input-text input" value="{{xxlSize}}"></td>
             </tr>
         </tbody>
     </table>
@@ -68,5 +68,5 @@
         <input id="product-img" name="image" type="file" class="input">
     </div>
 
-    <button class="button">Add product</button>
+    <button class="button">Update product</button>
 </form>
