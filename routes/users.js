@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const productModel = require("./../models/Product");
-
+const userModel = require("./../models/User");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -88,6 +88,33 @@ res.render("cart", {cart, total});
   catch (error) {
     next(error);
   }
-})
+});
+
+router.get("/favorites/:id", (req,res,next) => {
+  try {
+console.log("this is the current user >>>" , req.session.currentUser);
+if(req.session.currentUser) {
+const currentUser = req.session.currentUser;
+if(currentUser.favoriteProducts.includes(req.params.id)) {
+  req.flash("error", "This product is already in your favorites");
+}
+
+else {
+currentUser.favoriteProducts.push(req.params.id);
+console.log("this is the current user after adding product to favorites >>>" , req.session.currentUser);
+req.flash("success", `This product has been added to your favorites`);
+}
+
+}
+else {
+  console.log("we entered the else of the favorite products route")
+  req.flash("error", "You need to login to add this product to your favorites");
+}
+res.redirect(`/products/detailed/${req.params.id}`);
+  }
+  catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
