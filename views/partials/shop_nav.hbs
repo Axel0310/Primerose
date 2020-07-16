@@ -1,17 +1,19 @@
-<div class="big-container">
+<div class="big-container" id="header">
     <header class="header">
         <nav class="nav-wrapper flexed-item">
             <div class="nav-link-wrapper flexed-item">
-                <div class="nav-logo">
+                {{!-- <div class="nav-logo"> --}}
                     <a href="/" class="flexed-item">
                         <span class="logo-item circle"></span>
                         <h2 class="logo-item">Logo here</h2>
                     </a>
-                </div>
+                {{!-- </div> --}}
             </div>
-            <div class ="search-bar">
+
+            <div class="search-bar flexed-item">
             {{> searchBar}}
             </div>
+
       
             <div class="flexed-item nav-end">
                 {{#unless @root.isLoggedIn}}
