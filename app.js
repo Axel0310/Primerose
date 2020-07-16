@@ -7,7 +7,7 @@ const logger = require('morgan');
 const session = require("express-session")
 const hbs = require("hbs");
 const flash = require("connect-flash");
-const dev_mode = false; //To enable developpement middlewares
+const dev_mode = true; //To enable developpement middlewares
 require("./config/mongodb");
 require("./helpers/hbs");
 

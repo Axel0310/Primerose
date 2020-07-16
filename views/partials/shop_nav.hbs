@@ -1,49 +1,38 @@
-<div class="big-container" id="header">
-    <header class="header">
-        <nav class="nav-wrapper flexed-item">
-            <div class="nav-link-wrapper flexed-item">
-                {{!-- <div class="nav-logo"> --}}
-                    <a href="/" class="flexed-item">
-                        <span class="logo-item circle"></span>
-                        <h2 class="logo-item">Logo here</h2>
-                    </a>
-                {{!-- </div> --}}
-            </div>
+<header class="header">
+    <div id="shop-header">
+        <a href="/" id="shop-logo">
+            <img src="/images/shop_logo.png" alt="Shop logo" id="shop-logo">
+        </a>
 
-            <div class="search-bar flexed-item">
-            {{> searchBar}}
-            </div>
+        <nav id="shop-nav">
 
-      
-            <div class="flexed-item nav-end">
-                {{#unless @root.isLoggedIn}}
-                <a href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item">
-                    <span class="btn-text">Sign in</span>
-                </a>
-                <a href="/signup" id="nav_login" class="button-ternary flexed-item nav-end-item">
-                    <span class="btn-text">Sign up</span>
-                </a>
-                {{/unless}}
-                {{#if @root.isLoggedIn}}
-                    {{#if @root.currentUser.shop}}
-                    <a href="/shops/{{@root.currentUser.shop}}/shop-dashboard" class="button-ternary flexed-item nav-end-item">
-                        <span class="btn-text">My shop</span>
-                    </a>
-                    {{/if}}
-                    {{#unless @root.currentUser.shop}}
-                    <a href="/shops/create" class="button-ternary flexed-item nav-end-item">
-                        <span class="btn-text">Create my shop</span>
-                    </a>
-                    {{/unless}}
-                    <a href="/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
-                        <span class="btn-text">Log out</span>
-                    </a>
-                {{/if}}
-                <a href = "/user/cart">
-                <i class="fas fa-shopping-cart shop-cart-icon nav-end-item"></i>
-                </a>
-            </div>
+            <a href="/user/cart">
+                <i class="fas fa-shopping-cart shop-nav-item shop-cart-icon"></i>
+            </a>
+            {{#unless @root.isLoggedIn}}
+            <a href="/signin" id="nav_login" class="shop-nav-item">
+                <span class="shop-nav-item btn-sign">Sign in</span>
+            </a>
+            <a href="/signup" id="nav_login" class="shop-nav-item">
+                <span class="shop-nav-item btn-sign">Sign up</span>
+            </a>
+            {{/unless}}
+            {{#if @root.isLoggedIn}}
+            {{#if @root.currentUser.shop}}
+            <a href="/shops/{{@root.currentUser.shop}}/shop-dashboard">
+                <span class="shop-nav-item btn-shop">My shop</span>
+            </a>
+            {{/if}}
+            {{#unless @root.currentUser.shop}}
+            <a href="/shops/create">
+                <span class="shop-nav-item btn-shop">Create my shop</span>
+            </a>
+            {{/unless}}
+            <a href="/logout" id="nav_logout">
+                <span class="shop-nav-item btn-sign">Sign out</span>
+            </a>
+            {{/if}}
         </nav>
+    </div>
     {{> products_nav}}
-    </header>
-</div>
+</header>

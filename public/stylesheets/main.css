@@ -1,8 +1,7 @@
-@import './reset.css';
+@import './variables.css';
+@import './base.css';
 @import './header-nav.css';
-@import './footer.css';
 @import './form.css';
-@import './button.css';
 @import './products.css';
 @import './products-forms.css';
 @import './products-manage.css';
@@ -11,45 +10,3 @@
 @import './home.css';
 @import './shop.css';
 @import './messages.css';
-
-
-@import url('https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap');
-
-* {
-  font-family: 'Source Sans Pro', sans-serif;
-  box-sizing:border-box;
-}
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
-h1{
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-h2,
-h3,
-h4 {
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-}
-
-.big-container {
-  display: flex;
-  width: 100%;
-}
-
-.container {
-  width: 90%;
-}
-
-.flexed-item {
-  display: flex;
-}
-
-.hidden {
-  visibility:hidden;
-}
