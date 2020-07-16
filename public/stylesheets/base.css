@@ -36,8 +36,22 @@ h4 {
   visibility:hidden;
 }
 
+.no-opacity {
+  opacity: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+
+#content-main {
+  margin: 20px 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-mini {
+  width: 200px;
 }

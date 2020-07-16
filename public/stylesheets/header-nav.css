@@ -109,7 +109,7 @@
   position: absolute;
   background-color: var(--color-babyPink);
   min-width: 400px;
-  /* z-index: 1; */
+  z-index: 1;
   color: whitesmoke;
   font-weight: bold;
   padding: 5px;
@@ -131,5 +131,5 @@
 
 #shop-btn:hover{
   color: var(--color-yellow);
-  transition: all 0.2s ease-in;
+  transition: all 0.4s linear;
 }

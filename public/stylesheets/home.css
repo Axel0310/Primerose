@@ -1,57 +1,81 @@
-.home-container {
-  height: calc(100vh - (84px));
-  overflow: hidden;
-  background: black;
-  width: 100%;
-  background-image: url("/medias/img/home-img-2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+#concept {
+  background-color: var(--color-yellow);
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 75%;
+  border-radius: 15px;
+  color: whitesmoke;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.caroussel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .topshops , .newshops {
   display:flex;
+  flex-flow: wrap;
   flex-direction:row;
   justify-content: space-evenly;
   align-items:center;
   padding: 5px;
-  margin: 30px;
-  height:200px;
-
+  margin: 0 0 10px 0;
 }
 
-.shop-info-header {
-  display:flex;
-  flex-direction:column;
-  justify-content: space-evenly;
-  align-items:center;
+.shop-info-mini {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin: 5px 10px;
 }
 
-.shop-name {
-font-size:30px;
-font-weight:400;
+.shop-img-container{
+  width: 100%;
+  height: 100%;
 }
 
-.shop-description {
-  font-size:15px;
-  font-weight:100;
+.slider{
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #84a59d8c;
+  position: relative;
+  top: -200%;
+  transition: all 0.4s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.shop-image{
-  height:150px;
-  width:300px;
+.shop-info-mini:hover .slider{
+  top: -100% !important;
 }
 
-.shop-button {
-  border:1px solid black;
-  background-color:black;
-  border-radius:2px;
-  color:white;
-  font-weight:200;
-  padding:5px;
+.btn-shop-details {
+  font-size: 0.8rem;
 }
 
-.title-one {
-  margin:20px;
-  font-size:25px;
-  font-weight:400;
+.btn-shop-details:hover {
+  color: var(--color-yellow);
+}
+
+.shop-name-mini{
+  border-top: 1px solid var(--color-yellow);
+  border-bottom: 1px solid var(--color-yellow);
+  background-color: var(--color-morningBlue);
+  font-weight: bolder;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-style: italic;
 }
