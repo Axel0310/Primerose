@@ -1,12 +1,14 @@
-<h1>{{this.firstName}}</h1>
-<h1>{{this.lastName}}</h1>
-<p>{{this.email}}</p>
+<h1>First Name : {{user.firstName}}</h1>
+<h1>Last Name : {{user.lastName}}</h1>
+<p>Email : {{user.email}}</p>
 
 <h1>Favorite products</h1>
 
 {{#each this.favoriteProducts}}
 {{> product_mini }}
 {{/each}}
+
+<h1>Favorite shops</h1>
 
 {{#each this.favoriteShops}}
 {{> shop_mini }}
