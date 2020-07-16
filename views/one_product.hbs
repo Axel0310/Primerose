@@ -22,14 +22,14 @@
         <p class="product-price">{{product.price}}€</p>
     </div>
 </div>
-        <select name="size" id="select-size"class="select product-select">
+        <select name="size" id="select-size"class="select product-select" required>
             <option value="">Choose Size</option>
             {{#each product.sizesAvailable}}
             <option value="{{this.size}}">{{this.size}}</option>
             {{/each}}
         </select>
 
-        <select name="quantity" id="select-quantity" class="select product-select">
+        <select name="quantity" id="select-quantity" class="select product-select" required>
             <option value="">Choose Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -38,10 +38,14 @@
             <option value="5">5</option>
         </select>
 
+        <a href = "/user/favorites/{{product._id}}">
+        <i class="far fa-heart"></i>      
+        </a>
+
         <button href="" class="button-primary a-link">Add to cart <i
                 class="fas fa-shopping-cart shop-cart-icon-page"></i></button>
     </form>
 </div>
 
-
 </div>
+

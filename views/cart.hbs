@@ -8,12 +8,15 @@
           <th>Size</th>
           <th>Quantity</th>
           <th>Subtotal</th>
-          <th>Action</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
       {{#each cart}}
-        <tr class="product">
+<form action="/user/cart/update/{{this.id}}" method="get">        
+<tr class="product">
+<input class="hidden" type="text" name="id" value = "{{product.id}}">
           <td class="name">
             <span>{{this.name}}</span>
           </td>
@@ -22,13 +25,19 @@
             <input type="text" value="{{this.size}}" placeholder="Size" />
           </td>
       <td class="size">
-            <input type="number" value="{{this.quantity}}" placeholder="Quantity" />
+      
+            <input type="number" name="quantity" value="{{this.quantity}}" placeholder="Quantity" />
           </td>
+     
           <td class="subtotal">€<span>{{this.subtotal}}</span></td>
+            <td class="action">
+            <button>Update</button>
+          </td>
           <td class="action">
             <a href="/user/cart/delete/{{this.id}}" class="btn btn-remove">Remove</a>
           </td>
         </tr>
+</form>
         {{/each}}
         </tbody>
     </table>
