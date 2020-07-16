@@ -4,7 +4,7 @@
             <div class="nav-category dropdown">
                  <h2 class="flexed-item button-one">Women</h2>
                  <div class="dropdown-content">
-                     {{#each this}}
+                     {{#each @root.tagsList}}
                         {{#if (includes this.genre "women")}}
                         <a href="/products/women/{{this._id}}">{{this.name}}</a>
                         {{/if}}
@@ -14,7 +14,7 @@
             <div class="nav-category dropdown">
                 <h2 class="flexed-item button-one">Men</h2>
                 <div class="dropdown-content">
-                     {{#each this}}
+                     {{#each @root.tagsList}}
                         {{#if (includes this.genre "men")}}
                         <a href="/products/men/{{this._id}}">{{this.name}}</a>
                         {{/if}}

@@ -41,6 +41,8 @@ if (dev_mode === true) {
 app.use(require("./middlewares/exposeLoginStatus"));
 app.use(require("./middlewares/exposeFlashMessage"));
 
+app.use(require("./middlewares/exposeCategories"));
+
 //Routers
 app.use('/', require('./routes/index'));
 app.use('/products', require('./routes/products'));
