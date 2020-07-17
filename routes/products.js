@@ -15,7 +15,7 @@ router.get("/", async (req, res, next) => {
 })
 
 router.get("/detailed/:id", async (req, res, next) => {
-  console.log("coucou")
+  console.log(req.session.currentUser)
   try {
     const product = await productModel.findById(req.params.id).populate("shop");
     res.render("one_product", {product});

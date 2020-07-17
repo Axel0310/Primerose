@@ -33,28 +33,17 @@
             <option value="5">5</option>
         </select>
 
-        <a href="/user/favorites/{{product._id}}">
+            {{#compareFavorites @root.currentUser.favoriteProducts product._id}}
+
+          <a href="/user/favorites/{{product._id}}">
+                <i class="fas fa-heart"></i> </a>
+
+                {{else}}
+
+            <a href="/user/favorites/{{product._id}}">
             <i class="far fa-heart"></i>
 
-            {{!-- {{#each @root.currentUser.favoriteProducts}}
-        <p>foo</p>
-        {{!-- {{#compare this ../product._id operator="==="}}
-        <a href="/user/favorites/{{product._id}}">
-            <i class="fas fa-heart"></i> </a>
-        {{/compare}}
-        {{#compare this ../product._id operator="!="}}
-        <a href="/user/favorites/{{product._id}}">
-            <i class="far fa-heart"></i>
-        </a>
-        {{/compare}} --}}
-            {{!-- {{/each }} --}}
-            {{!-- 
-        {{#each @root.currentUser}}
-        {{#if (includes this.favoriteProducts ../product._id)}}
-        <a href="/user/favorites/{{product._id}}">
-            <i class="fas fa-heart"></i> </a>
-        {{/if}}
-        {{/each}} --}} 
+            {{/compareFavorites}}
 
 
             <button href="" class="button-primary a-link">Add to cart <i
