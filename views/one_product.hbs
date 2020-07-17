@@ -33,7 +33,10 @@
             <option value="5">5</option>
         </select>
 
-            {{#compareFavorites @root.currentUser.favoriteProducts product._id}}
+        <a href="/user/favorites/{{product._id}}">
+            <i class="fas fa-heart"></i> </a>
+
+        {{!-- {{#compareFavorites @root.currentUser.favoriteProducts product._id}}
 
           <a href="/user/favorites/{{product._id}}">
                 <i class="fas fa-heart"></i> </a>
@@ -43,11 +46,11 @@
             <a href="/user/favorites/{{product._id}}">
             <i class="far fa-heart"></i>
 
-            {{/compareFavorites}}
+            {{/compareFavorites}} --}}
 
 
-            <button href="" class="button-primary a-link">Add to cart <i
-                    class="fas fa-shopping-cart shop-cart-icon-page"></i></button>
+        <button href="" class="button-primary a-link">Add to cart <i
+                class="fas fa-shopping-cart shop-cart-icon-page"></i></button>
     </form>
 </div>
 
