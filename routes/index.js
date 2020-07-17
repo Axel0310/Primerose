@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
   console.log(req.session.currentUser)
   try {
   const topShops = await shopModel.find().sort({view:-1}).limit(5);
-  const newShops = await shopModel.find().sort({creationDate:1}).limit(5);
+  const newShops = await shopModel.find().sort({creationDate:-1}).limit(5);
   res.render('home', { title: 'Home', topShops: topShops, newShops: newShops});
   }
   catch (error) {

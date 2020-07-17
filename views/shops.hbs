@@ -4,18 +4,20 @@
     <div class="line"></div>
 </div>
 
-<div class="no-item-msg">
-    {{#unless shops}}
-    <p>Sorry, there are no shops yet !</p>
-    <p>You are a fashion designer and you want to create your shop?</p>
-    {{#if isLoggedIn}}
-    <a href="/shops/create"> Create your shop here</a>
-    {{/if}}
-    {{#unless isLoggedIn}}
-    <a href="/signin"> Create your shop here</a>
-    {{/unless}}
-    {{/unless}}
+
+{{#unless shops}}
+<div class="no-item-msg"></div>
+<p>Sorry, there are no shops yet !</p>
+<p>You are a fashion designer and you want to create your shop?</p>
+{{#if isLoggedIn}}
+<a href="/shops/create"> Create your shop here</a>
+{{/if}}
+{{#unless isLoggedIn}}
+<a href="/signin"> Create your shop here</a>
+{{/unless}}
 </div>
+{{/unless}}
+
 
 
 <div class="shops-wrapper">

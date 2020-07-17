@@ -4,7 +4,20 @@
     <div class="line"></div>
 </div>
 
-<div class="topshops">
+{{#unless searchResults}}
+<div class="no-item-msg">
+<p>Sorry, there is nothing matching your request !</p>
+<p>You are a fashion designer and you want to create your shop?</p>
+{{#if isLoggedIn}}
+<a href="/shops/create"> Create your shop here</a>
+{{/if}}
+{{#unless isLoggedIn}}
+<a href="/signin"> Create your shop here</a>
+{{/unless}}
+</div>
+{{/unless}}
+
+<div class="products-wrapper">
     {{#each searchResults}}
     {{> product_mini }}
     {{/each}}
