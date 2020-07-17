@@ -10,19 +10,19 @@
 </div>
 
 <div class="flexed-item">
-<form action="/user/cart" method="post">
+    <form action="/user/cart" method="post">
 
-<div class="product-info">
-    <div class="product-info-header">
-    <input class="hidden" type="text" name="name" value = "{{product.name}}">
-    <input class="hidden" type="text" name="price" value = "{{product.price}}">
-     <input class="hidden" type="text" name="id" value = "{{product._id}}">
-        <h1 class="product-name">{{product.name}}</h1>
-        <p class="product-description">{{product.description}}</p>
-        <p class="product-price">{{product.price}}€</p>
-    </div>
-</div>
-        <select name="size" id="select-size"class="select product-select" required>
+        <div class="product-info">
+            <div class="product-info-header">
+                <input class="hidden" type="text" name="name" value="{{product.name}}">
+                <input class="hidden" type="text" name="price" value="{{product.price}}">
+                <input class="hidden" type="text" name="id" value="{{product._id}}">
+                <h1 class="product-name">{{product.name}}</h1>
+                <p class="product-description">{{product.description}}</p>
+                <p class="product-price">{{product.price}}€</p>
+            </div>
+        </div>
+        <select name="size" id="select-size" class="select product-select" required>
             <option value="">Choose Size</option>
             {{#each product.sizesAvailable}}
             <option value="{{this.size}}">{{this.size}}</option>
@@ -38,9 +38,26 @@
             <option value="5">5</option>
         </select>
 
-        <a href = "/user/favorites/{{product._id}}">
-        <i class="far fa-heart"></i>      
+        {{#each @root.currentUser.favoriteProducts}}
+        <p>foo</p>
+        {{!-- {{#compare this ../product._id operator="==="}}
+        <a href="/user/favorites/{{product._id}}">
+            <i class="fas fa-heart"></i> </a>
+        {{/compare}}
+        {{#compare this ../product._id operator="!="}}
+        <a href="/user/favorites/{{product._id}}">
+            <i class="far fa-heart"></i>
         </a>
+        {{/compare}} --}}
+        {{/each }}
+
+        {{#each @root.currentUser}}
+        {{#if (includes this.favoriteProducts ../product._id)}}
+        <a href="/user/favorites/{{product._id}}">
+            <i class="fas fa-heart"></i> </a>
+        {{/if}}
+        {{/each}}
+
 
         <button href="" class="button-primary a-link">Add to cart <i
                 class="fas fa-shopping-cart shop-cart-icon-page"></i></button>
@@ -48,4 +65,3 @@
 </div>
 
 </div>
-

@@ -155,6 +155,7 @@ router.get("/favorites/:id", async (req, res, next) => {
           { new: true }
         );
         req.flash("success", `This product has been added to your favorites`);
+        req.session.currentUser = newUser;
       }
     } else {
       req.flash(
@@ -162,6 +163,7 @@ router.get("/favorites/:id", async (req, res, next) => {
         "You need to login to add this product to your favorites"
       );
     }
+
     res.redirect(`/products/detailed/${req.params.id}`);
   } catch (error) {
     next(error);
