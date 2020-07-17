@@ -14,6 +14,17 @@
   margin-bottom: 40px;
 }
 
+#concept-content {
+  width: 80%;
+}
+
+#concept-content p{
+  text-align: justify;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
 .caroussel {
   display: flex;
   flex-direction: column;
