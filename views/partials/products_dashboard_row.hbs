@@ -1,22 +1,22 @@
-<td class="table-division">
+<td>
   <div><img src="{{this.image}}" alt="img" class="table-image" /></div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.name}}</div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.description}}</div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.price}}€</div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.genre}}</div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.category.name}}</div>
 </td>
-<td class="table-division">
+<td>
   <div>
       {{#unless this.sizesAvailable}}
         No size available
@@ -26,19 +26,19 @@
       {{/each}}
       </div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.view}}</div>
 </td>
-<td class="table-division">
+<td>
   <div>{{this.sellsCount}}</div>
 </td>
 
-<td class="table-division">
+<td>
   <a href="/shops/{{@root.currentUser.shop}}/update-product/{{this._id}}">
    <i class="fa fa-edit table-icon"></i>
   </a>
 </td>
-<td class="table-division">
+<td>
   <a href="/shops/{{@root.currentUser.shop}}/delete-product/{{this._id}}">
     <i class="fa fa-trash table-icon"></i>
   </a>

@@ -1,15 +1,33 @@
-<h1>First Name : {{user.firstName}}</h1>
-<h1>Last Name : {{user.lastName}}</h1>
-<p>Email : {{user.email}}</p>
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h1 class="section-title">My account</h1>
+    <div class="line"></div>
+</div>
 
-<h1>Favorite products</h1>
+<p class="account-info">First Name: {{user.firstName}}</p>
+<p class="account-info">Last Name: {{user.lastName}}</p>
+<p class="account-info">Email: {{user.email}}</p>
 
-{{#each this.favoriteProducts}}
-{{> product_mini }}
-{{/each}}
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h2 class="section-title">Favorite products</h2>
+    <div class="line"></div>
+</div>
 
-<h1>Favorite shops</h1>
+<div class="topshops">
+    {{#each this.favoriteProducts}}
+    {{> product_mini }}
+    {{/each}}
+</div>
 
-{{#each this.favoriteShops}}
-{{> shop_mini }}
-{{/each}}
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h2 class="section-title">Favorite shops</h2>
+    <div class="line"></div>
+</div>
+
+<div class="topshops">
+    {{#each this.favoriteShops}}
+    {{> shop_mini }}
+    {{/each}}
+</div>

@@ -1,9 +1,14 @@
-<a href="/shops/{{_id}}">
-<div class="shop-info-header">
-    {{!-- <h1 class="shop-name">{{name}}</h1>
-    <p class="shop-description">{{description}}</p> --}}
+{{!-- <div class="shop-info-mini">
+    <div class="shop-img-container" style="background: url({{image}}) center / contain no-repeat">
+        <a href="/shops/{{_id}}" class="btn-shop-details no-opacity">See details</a>
+    </div>
+</div> --}}
 
-    <img class="shop-image" src="{{image}}" alt="{{name}}">
-    <a class="button-primary" href="#">See this shop</a>
+<div class="shop-info-mini">
+    <div class="shop-img-container" style="background: url({{image}}) center / contain no-repeat">
+    </div>
+    <div class="slider">
+        <p class="shop-name-mini">{{this.name}}</p>
+        <a href="/shops/{{_id}}" class="btn-shop-details">See shop details</a>
+    </div>
 </div>
-</a>

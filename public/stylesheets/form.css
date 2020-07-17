@@ -50,3 +50,96 @@ select:focus {
   color: rgb(151, 151, 151);
   font-size: 0.9rem;
 }
+
+.sign-form {
+  background-color: var(--color-linen);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  width: 30%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sign-form label {
+  font-weight: bold;
+}
+
+.sign-form button {
+  border: none;
+  background-color: var(--color-coral);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.sign-form input {
+  border-color: var(--color-coral);
+}
+
+.sign-form button:hover {
+  color: var(--color-yellow);
+}
+
+.sign-form-link {
+  font-size: 0.8rem;
+}
+
+.sign-form-link:hover {
+  background-color: var(--color-coral);
+}
+
+.item-form label{
+  font-weight: bold;
+}
+
+.item-form input{
+  border-color: var(--color-coral);
+}
+
+.form-wrapper{
+  width: 100%;
+}
+
+.item-form table input{
+  width: 80px;
+}
+
+.item-form table{
+  position: static;
+  transform: none;
+}
+
+.logo-upload{
+  color: var(--color-coral);
+}
+
+.item-form button {
+  border: none;
+  background-color: var(--color-coral);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.item-form button:hover {
+  color: var(--color-yellow);
+}

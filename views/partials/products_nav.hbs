@@ -1,29 +1,31 @@
-<div class="big-container">
-    <header class="header">
-        <nav class="nav-wrapper nav-categories">
-            <div class="nav-category dropdown">
-                 <h2 class="flexed-item button-one">Women</h2>
-                 <div class="dropdown-content">
-                     {{#each @root.tagsList}}
-                        {{#if (includes this.genre "women")}}
-                        <a href="/products/women/{{this._id}}">{{this.name}}</a>
-                        {{/if}}
-                     {{/each}}
-                 </div>
+<div class="big-container" id="products-nav">
+
+    <nav id="categories-nav">
+        <div class="dropdown">
+            <p class="btn-nav">Women</p>
+            <div class="dropdown-content">
+                {{#each @root.tagsList}}
+                {{#if (includes this.genre "women")}}
+                <a href="/products/women/{{this._id}}" class="categories">{{this.name}}</a>
+                {{/if}}
+                {{/each}}
             </div>
-            <div class="nav-category dropdown">
-                <h2 class="flexed-item button-one">Men</h2>
-                <div class="dropdown-content">
-                     {{#each @root.tagsList}}
-                        {{#if (includes this.genre "men")}}
-                        <a href="/products/men/{{this._id}}">{{this.name}}</a>
-                        {{/if}}
-                     {{/each}}
-                 </div>
+        </div>
+        <div class="dropdown">
+            <p class="btn-nav">Men</p>
+            <div class="dropdown-content">
+                {{#each @root.tagsList}}
+                {{#if (includes this.genre "men")}}
+                <a href="/products/men/{{this._id}}" class="categories">{{this.name}}</a>
+                {{/if}}
+                {{/each}}
             </div>
-            <div class="nav-category">
-                <a href="/shops" class="flexed-item button-one">SHOPS</a>
-            </div>
-        </nav>
-    </header>
+        </div>
+        <div>
+            <span class="btn-nav" id="shop-btn">
+                <a href="/shops">Shops</a>
+            </span>
+        </div>
+    </nav>
+
 </div>

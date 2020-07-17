@@ -1,46 +1,60 @@
-<body>
-    <h1>Shopping Cart</h1>
-    <table id="cart">
-      <thead>
-        <tr>
-          <th>Product Name</th>
-          <th>Unit Price</th>
-          <th>Size</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
-          <th>Update</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-      {{#each cart}}
-<form action="/user/cart/update/{{this.id}}" method="get">        
-<tr class="product">
-<input class="hidden" type="text" name="id" value = "{{product.id}}">
-          <td class="name">
-            <span>{{this.name}}</span>
-          </td>
-          <td class="price">€<span>{{this.price}}</span></td>
-          <td class="quantity">
-            <input type="text" value="{{this.size}}" placeholder="Size" />
-          </td>
-      <td class="size">
-      
-            <input type="number" name="quantity" value="{{this.quantity}}" placeholder="Quantity" />
-          </td>
-     
-          <td class="subtotal">€<span>{{this.subtotal}}</span></td>
-            <td class="action">
-            <button>Update</button>
-          </td>
-          <td class="action">
-            <a href="/user/cart/delete/{{this.id}}" class="btn btn-remove">Remove</a>
-          </td>
-        </tr>
-</form>
-        {{/each}}
-        </tbody>
-    </table>
-    <h2 id="total-value">Total: $<span>{{total}}</span></h2>
-  </body>
-</html>
+<div class="title-wrapper">
+  <div class="line"></div>
+  <h1 class="section-title">Your Shopping Cart</h1>
+  <div class="line"></div>
+</div>
+
+<table id="cart">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Unit Price</th>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Update</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#unless cart}}
+      <tr>
+        <td colspan="7">Your cart is empty.</td>
+      </tr>
+    {{/unless}}
+    {{#each cart}}
+    <form action="/user/cart/update/{{this.id}}" method="get">
+      <tr class="product">
+        <input class="hidden" type="text" name="id" value="{{product.id}}">
+        <td class="name">
+          <span>{{this.name}}</span>
+        </td>
+        <td class="price">{{this.price}}€</td>
+        <td class="quantity">
+          <input type="text" value="{{this.size}}" placeholder="Size" />
+        </td>
+        <td class="size">
+
+          <input type="number" name="quantity" value="{{this.quantity}}" placeholder="Quantity" />
+        </td>
+
+        <td class="subtotal">€<span>{{this.subtotal}}</span></td>
+        <td class="action">
+          <button>Update</button>
+        </td>
+        <td class="action">
+          <a href="/user/cart/delete/{{this.id}}" class="btn-remove"><i class="fas fa-trash-alt"></i></a>
+        </td>
+      </tr>
+    </form>
+    {{/each}}
+  </tbody>
+  {{#if cart}}
+  <tfoot>
+    <tr>
+      <td id="total-value">Total:</td>
+      <td colspan="6">{{total}}€</td>
+    </tr>
+  </tfoot>
+  {{/if}}
+</table>

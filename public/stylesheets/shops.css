@@ -1,0 +1,85 @@
+.shops-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
+.shop-mini {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-img-container-big {
+  width: 300px;
+  height: 300px;
+}
+
+.shop-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-linen);
+  width: 100%;
+  border-radius: 10px;
+}
+
+.shop-name {
+  font-size: 1.5rem;
+  color: var(--color-morningBlue);
+  border-top: 1px solid var(--color-yellow);
+  border-bottom: 1px solid var(--color-yellow);
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.shop-description {
+  margin-bottom: 5px;
+}
+
+.shop-link:hover {
+    color: var(--color-morningBlue);
+}
+
+.btn-shop-update{
+  padding: 5px;
+  background-color: var(--color-morningBlue);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.btn-shop-update:hover{
+  color: var(--color-yellow)
+}
+
+.btn-shop-delete{
+  padding: 5px;
+  background-color: var(--color-coral);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.btn-shop-delete:hover{
+  color: var(--color-yellow)
+}
+
+.btn-shop-add-product{
+  padding: 5px;
+  background-color: var(--color-morningBlue);
+  border-radius: 5px;
+}
+
+.btn-shop-add-product:hover{
+  color: var(--color-yellow)
+}
+
+.wrapper-flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
