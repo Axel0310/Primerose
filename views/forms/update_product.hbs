@@ -1,5 +1,11 @@
-<form action="/shops/{{currentUser.shop}}/update-product/{{product._id}}" method="post" class="edit-product-form" enctype="multipart/form-data">
-    <h3 class="form-title">Update product</h3>
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h1 class="section-title">Update product</h1>
+    <div class="line"></div>
+</div>
+
+<form action="/shops/{{currentUser.shop}}/update-product/{{product._id}}" method="post"
+    class="edit-product-form item-form" enctype="multipart/form-data">
     <div class="form-item-wrapper flexed-item">
         <label for="product-name" class="label">Product name</label>
         <input id="product-name" name="name" type="text" class="input-text input" placeholder="ex: Nice dress"
@@ -14,7 +20,8 @@
 
     <div class="form-item-wrapper flexed-item">
         <label for="product-price" class="label">Product price</label>
-        <input id="product-price" name="price" type="number" class="input-text input" value="{{product.price}}" required>
+        <input id="product-price" name="price" type="number" class="input-text input" value="{{product.price}}"
+            required>
     </div>
 
     <div class="form-item-wrapper flexed-item">
@@ -61,11 +68,10 @@
         </select>
     </div>
 
-
-
     <div class="form-item-wrapper flexed-item">
-        <label for="product-img" class="label">Product image</label>
-        <input id="product-img" name="image" type="file" class="input">
+        <label for="product-img" class="label"><i class="fas fa-file-upload fa-2x logo-upload"></i> Upload product image
+            </i></label>
+        <input id="product-img" name="image" type="file" class="hidden">
     </div>
 
     <button class="button">Update product</button>
