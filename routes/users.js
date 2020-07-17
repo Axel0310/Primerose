@@ -3,13 +3,14 @@ var router = express.Router();
 const productModel = require("./../models/Product");
 const userModel = require("./../models/User");
 const shopModel = require("./../models/Shop");
+const checkLoginStatus = require("./../middlewares/checkLoginStatus");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-router.get("/accountinformation", async (req, res, next) => {
+router.get("/accountinformation", checkLoginStatus, async (req, res, next) => {
   const user = await userModel
     .findById(req.session.currentUser._id)
     .populate("favoriteProducts")
@@ -96,7 +97,7 @@ router.get("/cart/update/:id", async (req, res, next) => {
   }
 });
 
-router.get("/favorites/shop/:id", async (req, res, next) => {
+router.get("/favorites/shop/:id", checkLoginStatus, async (req, res, next) => {
   try {
 
     if (req.session.currentUser) {
@@ -132,7 +133,7 @@ router.get("/favorites/shop/:id", async (req, res, next) => {
   }
 });
 
-router.get("/favorites/:id", async (req, res, next) => {
+router.get("/favorites/:id", checkLoginStatus, async (req, res, next) => {
   try {
 
     if (req.session.currentUser) {

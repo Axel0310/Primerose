@@ -5,6 +5,7 @@ const shopModel = require("./../models/Shop");
 const productModel = require("./../models/Product");
 const categoryModel = require("./../models/Category");
 const userModel = require("./../models/User");
+const checkLoginStatus = require("./../middlewares/checkLoginStatus");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -15,7 +16,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/create", (req, res) => {
+router.get("/create", checkLoginStatus, (req, res) => {
     res.render("forms/create_shop");
 });
 
@@ -35,7 +36,7 @@ router.post("/create", uploader.single("image"), async (req, res, next) => {
   }
 });
 
-router.get("/update", async (req, res) => {
+router.get("/update", checkLoginStatus, async (req, res) => {
   res.render("forms/update_shop", await shopModel.findById(req.session.currentUser.shop));
 });
 
@@ -52,7 +53,7 @@ router.post("/update", uploader.single("image"), async (req, res, next) => {
   }
 });
 
-router.get("/delete", async (req, res, next) => {
+router.get("/delete", checkLoginStatus, async (req, res, next) => {
   try {
     const shopId = req.session.currentUser.shop;
     const products = (await shopModel.findById(shopId).select("products")).products;
@@ -85,7 +86,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.get("/:id/add-product", async (req, res, next) => {
+router.get("/:id/add-product", checkLoginStatus, async (req, res, next) => {
   try {
     const categories = await categoryModel.find();
     res.render("forms/add_product", { categories });
@@ -95,7 +96,7 @@ router.get("/:id/add-product", async (req, res, next) => {
 });
 
 router.post(
-  "/:id/add-product",
+  "/:id/add-product", checkLoginStatus, 
   uploader.single("image"),
   async (req, res, next) => {
     const {
@@ -164,7 +165,7 @@ router.post(
   }
 );
 
-router.get("/:id/shop-dashboard", async (req, res, next) => {
+router.get("/:id/shop-dashboard", checkLoginStatus, async (req, res, next) => {
   try {
     const shop = await shopModel
       .findById(req.params.id)
@@ -175,7 +176,7 @@ router.get("/:id/shop-dashboard", async (req, res, next) => {
   }
 });
 
-router.get("/:id/delete-product/:prod", async (req, res, next) => {
+router.get("/:id/delete-product/:prod", checkLoginStatus, async (req, res, next) => {
   try {
     await productModel.findByIdAndDelete(req.params.prod);
     const shop = await shopModel.findById(req.params.id);
@@ -190,7 +191,7 @@ router.get("/:id/delete-product/:prod", async (req, res, next) => {
   }
 });
 
-router.get("/:id/update-product/:prod", async (req, res, next) => {
+router.get("/:id/update-product/:prod", checkLoginStatus, async (req, res, next) => {
   function getSizeQuantity(prod, val) {
     const sizeIndex = prod.sizesAvailable.findIndex(
       (sizeObj) => sizeObj.size === val
@@ -218,7 +219,7 @@ router.get("/:id/update-product/:prod", async (req, res, next) => {
 });
 
 router.post(
-  "/:id/update-product/:prod",
+  "/:id/update-product/:prod", checkLoginStatus,
   uploader.single("image"),
   async (req, res, next) => {
     try {
