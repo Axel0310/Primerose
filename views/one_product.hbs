@@ -4,54 +4,45 @@
     <div class="line"></div>
 </div>
 
-<div class="flexed-item">
-    <form action="/user/cart" method="post">
+<div class="detailled-content-wrapper">
 
-        <div class="product-info">
-            <div class="product-info-header">
-                <input class="hidden" type="text" name="name" value="{{product.name}}">
-                <input class="hidden" type="text" name="price" value="{{product.price}}">
-                <input class="hidden" type="text" name="id" value="{{product._id}}">
-                <h1 class="product-name">{{product.name}}</h1>
-                <p class="product-description">{{product.description}}</p>
-                <p class="product-price">{{product.price}}€</p>
-            </div>
+    <img src="{{product.image}}" alt="img-product" class="detailled-img">
+
+    <form action="/user/cart" method="post" class="detailled-info-wrapper">
+
+        <input class="hidden" type="text" name="name" value="{{product.name}}">
+        <input class="hidden" type="text" name="price" value="{{product.price}}">
+        <input class="hidden" type="text" name="id" value="{{product._id}}">
+
+        <div class="flexed-item">
+            <h1 class="product-name">{{product.name}}</h1>
+            <a href="/user/favorites/{{product._id}}" class="like-btn">
+                <i class="far fa-heart fa-2x"></i>
+            </a>
         </div>
-        <select name="size" id="select-size" class="select product-select" required>
-            <option value="">Choose Size</option>
-            {{#each product.sizesAvailable}}
-            <option value="{{this.size}}">{{this.size}}</option>
-            {{/each}}
-        </select>
 
-        <select name="quantity" id="select-quantity" class="select product-select" required>
-            <option value="">Choose Quantity</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+        <p class="product-description">{{product.description}}</p>
+        <p class="product-price">{{product.price}}€</p>
 
-        <a href="/user/favorites/{{product._id}}">
-            <i class="fas fa-heart"></i> </a>
+        <div class="flexed-item">
+            <select name="size" id="select-size" class="select product-select" required>
+                <option value="">Choose Size</option>
+                {{#each product.sizesAvailable}}
+                <option value="{{this.size}}">{{this.size}}</option>
+                {{/each}}
+            </select>
 
-        {{!-- {{#compareFavorites @root.currentUser.favoriteProducts product._id}}
+            <select name="quantity" id="select-quantity" class="select product-select" required>
+                <option value="">Choose Quantity</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-          <a href="/user/favorites/{{product._id}}">
-                <i class="fas fa-heart"></i> </a>
-
-                {{else}}
-
-            <a href="/user/favorites/{{product._id}}">
-            <i class="far fa-heart"></i>
-
-            {{/compareFavorites}} --}}
-
-
-        <button href="" class="button-primary a-link">Add to cart <i
-                class="fas fa-shopping-cart shop-cart-icon-page"></i></button>
+            <button class="btn-add-cart">Add to cart</button>
+        </div>
+        <a href="/shops/{{product.shop._id}}" class="detailled-shop-link">Check all {{product.shop.name}}'s' collection</a>
     </form>
-</div>
-
 </div>
