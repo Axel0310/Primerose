@@ -1,5 +1,10 @@
-<form action="/shops/create" method="post" class="add-product-form" enctype="multipart/form-data">
-    <h3 class="form-title">Create your shop</h3>
+<div class="title-wrapper">
+    <div class="line"></div>
+    <h1 class="section-title">Create your shop</h1>
+    <div class="line"></div>
+</div>
+
+<form action="/shops/create" method="post" class="add-product-form item-form" enctype="multipart/form-data">
     <div class="form-item-wrapper flexed-item">
         <label for="shop-name" class="label">Shop name</label>
         <input id="shop-name" name="name" type="text" class="input-text input" placeholder="Your shop name"
@@ -8,13 +13,14 @@
 
     <div class="form-item-wrapper flexed-item">
         <label for="shop-desc" class="label">Shop description</label>
-        <input id="shop-desc" name="description" type="text" class="input-text input" placeholder="Your shop description"
-            value="This is a fake shop" required>
+        <input id="shop-desc" name="description" type="text" class="input-text input"
+            placeholder="Your shop description" value="This is a fake shop" required>
     </div>
 
     <div class="form-item-wrapper flexed-item">
-        <label for="shop-img" class="label">Shop image</label>
-        <input id="shop-img" name="image" type="file" class="input">
+        <label for="shop-img" class="label"><i class="fas fa-file-upload fa-2x logo-upload"></i> Upload product image
+            </i></label>
+        <input id="shop-img" name="image" type="file" class="hidden">
     </div>
 
     <button class="button">Validate</button>

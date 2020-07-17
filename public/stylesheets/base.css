@@ -87,3 +87,23 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.label{
+  cursor: pointer;
+}
+
+.account-info{
+  font-size: 1.2rem;
+  color: var(--color-coral);
+}
+
+.no-item-msg{
+  background-color: var(--color-babyPink);
+  font-weight: bold;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 10px;
+  text-align: center;
+  width: 80vw;
+}

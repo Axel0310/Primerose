@@ -103,3 +103,43 @@ select:focus {
 .sign-form-link:hover {
   background-color: var(--color-coral);
 }
+
+.item-form label{
+  font-weight: bold;
+}
+
+.item-form input{
+  border-color: var(--color-coral);
+}
+
+.form-wrapper{
+  width: 100%;
+}
+
+.item-form table input{
+  width: 80px;
+}
+
+.item-form table{
+  position: static;
+  transform: none;
+}
+
+.logo-upload{
+  color: var(--color-coral);
+}
+
+.item-form button {
+  border: none;
+  background-color: var(--color-coral);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.item-form button:hover {
+  color: var(--color-yellow);
+}
