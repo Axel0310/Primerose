@@ -7,6 +7,8 @@ If you want to sell your own products, you can create your shop directly from yo
 
 We used the following technologies: Javascript, Node, Express, MongoDB, Handlebars.
 
+You can access it here: https://primrose-marketplace.herokuapp.com/
+
 # Sceenshots
 ![Primerose screenshot](https://res.cloudinary.com/direuudpy/image/upload/v1599497804/Misc/primerose_1_swdsmt.png)
 ![Primerose screenshot](https://res.cloudinary.com/direuudpy/image/upload/v1599497804/Misc/primerose_2_g1vsey.png)
