@@ -16,7 +16,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerPartials(path.join(__dirname, "/views/partials"));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,7 +27,6 @@ app.use(session({
   cookie: { maxAge: 600000 },
   resave: false,
   saveUninitialized: true,
-  resave: true
 }))
 app.use(express.static(path.join(__dirname, 'public')))
 
